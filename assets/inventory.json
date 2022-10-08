@@ -1,0 +1,27 @@
+{
+  "Rapid Strike Urshifu VMAX League Battle Deck (TCG)": {
+    "price": 85,
+    "img": "Rapid-Strike-Deck.jpg",
+    "cart": "add-urshifu"
+  },
+  "Volcarona GX (SM12 252)": {
+    "price": 34,
+    "img": "SM12_EN_252.png",
+    "cart": "add-sm12-252"
+  },
+  "Arceus Dialga & Palkia (SM12 156)": {
+    "price": 112,
+    "img": "SM12_EN_156.png",
+    "cart":  "add-sm12-156"
+  },
+  "Mewtwo & Mew GX (SM11 71)": {
+    "price": 85,
+    "img": "SM11_EN_71.png",
+    "cart": "add-sm11-71"
+  },
+  "Single Strike Style Mustard (SWSH5 163)": {
+    "price": 67,
+    "img": "SWSH5_EN_163.png",
+    "cart": "add-swsh5-163"
+  }
+}

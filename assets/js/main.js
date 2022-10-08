@@ -2,7 +2,7 @@
     "use strict";
 
     $(document).ready(function($){
-        
+
         // testimonial sliders
         $(".testimonial-sliders").owlCarousel({
             items: 1,
@@ -134,7 +134,6 @@
             $(".hero-text-tablecell h1").addClass("animated fadeInUp").css({'opacity': '0', 'animation-delay' : '0.3s'});
             $(".hero-btns").addClass("animated fadeInUp").css({'opacity': '0', 'animation-delay' : '0.5s'});
         });
-
        
 
         // stikcy js
@@ -156,7 +155,30 @@
         $(".close-btn").on("click", function() {
             $(".search-area").removeClass("search-active");
         });
-    
+
+        // Global Cart
+        sessionStorage.setItem("cart", JSON.stringify({}));
+
+        // Shopping cart toggle
+        let pageState = false; // is page showing shopping cart? 
+        $(".home").on("click", () => {
+            pageState = false;
+            $(".product-section").load(`pages/products.html`);
+        });
+        $(".shopping-cart").on("click", function () {
+            if (pageState) {
+                $(".product-section").load(`pages/products.html`);
+            } else {
+                $(".product-section").load(`pages/checkout.html`);
+            }
+            pageState = !pageState;
+        });
+
+        // Initial page
+        $(".product-section").load(`pages/products.html`);
+        
+        // Add to cart
+        
     });
 
 

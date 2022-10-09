@@ -21,7 +21,7 @@ $.getJSON("assets/inventory.json", (inventory) => {
             <div class="counter">
                 <i class="fa-solid fa-circle-plus"></i>
                 <div class="count">${cart[product]}</div>
-                <div class="btn">-</div>
+                <i class="fa-solid fa-circle-minus"></i>
             </div>
             <div class="prices">
                 <div class="amount">$${inventory[product].price * cart[product]}</div>

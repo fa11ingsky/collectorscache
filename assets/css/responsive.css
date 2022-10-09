@@ -208,6 +208,11 @@
         width: 50%;
     }
 
+    .title {
+        font-size: 0.8rem;
+        line-height: 1rem;
+    }
+
 	.site-logo img {
 	    max-width: 150px;
 	}

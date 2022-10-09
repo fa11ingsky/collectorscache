@@ -19,7 +19,7 @@ $.getJSON("assets/inventory.json", (inventory) => {
                 <h3 class="title">${product}</h3>
             </div>
             <div class="counter">
-                <div class="btn">+</div>
+                <i class="fa-solid fa-circle-plus"></i>
                 <div class="count">${cart[product]}</div>
                 <div class="btn">-</div>
             </div>

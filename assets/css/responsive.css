@@ -167,9 +167,7 @@
 	.featured-section {
 	    padding: 100px 0;
 	}
-	nav.main-menu {
-	    display: none;
-	}
+	
 	table.order-details {
 	    width: 100%;
 	}
@@ -203,6 +201,17 @@
 
 /* Mobile Layout: 320px. */
 @media only screen and (max-width: 767px) {
+    .checkout {
+        float: none;
+        padding-top: 20px;
+        margin: auto;
+        width: 50%;
+    }
+
+    .title {
+        font-size: 0.8rem;
+        line-height: 1rem;
+    }
 
 	.site-logo img {
 	    max-width: 150px;
@@ -472,9 +481,7 @@
 	    font-size: 30px;
 	}
 
-	.main-menu {
-	    display: none;
-	}
+	
 	.error-text h1 {
 	    font-size: 25px;
 	}

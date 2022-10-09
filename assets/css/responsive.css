@@ -167,9 +167,7 @@
 	.featured-section {
 	    padding: 100px 0;
 	}
-	nav.main-menu {
-	    display: none;
-	}
+	
 	table.order-details {
 	    width: 100%;
 	}
@@ -472,9 +470,7 @@
 	    font-size: 30px;
 	}
 
-	.main-menu {
-	    display: none;
-	}
+	
 	.error-text h1 {
 	    font-size: 25px;
 	}

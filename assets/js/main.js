@@ -15,7 +15,41 @@
             });
             
         });
-        
+
+        // Handle click events for dynamic HTML
+        $.getJSON("assets/inventory.json", (inventory) => {
+            var cartClasses = {};
+            for (let product in inventory) {
+                // fetch all classes
+                cartClasses[inventory[product].cart] = product;
+            }
+
+            $(".product-section").on('click', function (event) {
+                var cartElement = $(event.target)[0];
+                var product = null;
+                for (var i in cartClasses) {
+                    if (cartElement.className.indexOf(i) !== -1) {
+                        product = cartClasses[i];
+                    }
+                };                
+                if (!product) {
+                    for (var i in cartClasses) {
+                        if (cartElement.parentElement.className.indexOf(i) !== -1) {
+                            product = cartClasses[i];
+                        }
+                    }
+                }
+                if (!product) {
+                    return;
+                }
+                // fetch cart
+                let cart = JSON.parse(sessionStorage.getItem("cart"));
+                cart[product] = product in cart ? cart[product] + 1 : 1;
+                // store cart
+                sessionStorage.setItem("cart", JSON.stringify(cart));
+            });            
+        });
+
         // isotop inner
         $(".product-lists").isotope();
 
@@ -39,11 +73,15 @@
 
         // Initial page
         $(".product-section").load(`pages/products.html`);
+        
+        
 
     });
 
     jQuery(window).on("load",function(){
         jQuery(".loader").fadeOut(1000);
     });
+
+   
 
 }(jQuery));

@@ -19,15 +19,6 @@ $.getJSON("assets/inventory.json", (inventory) => {
                     <a class=".${inventory[product].cart} cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
             </div>`;        
-
-            $(`.${inventory[product].cart}`).on("click", () => {
-                // fetch cart
-                let cart = JSON.parse(sessionStorage.getItem("cart"));
-                cart[product] = product in cart ? cart[product] + 1 : 1;
-                // store cart
-                sessionStorage.setItem("cart", JSON.stringify(cart));
-            });
-
     }
     productPage += productRowEnd;
     $(".products").html(productPage);

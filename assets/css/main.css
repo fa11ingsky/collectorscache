@@ -160,6 +160,23 @@ p:last-child {
 
 /* -----------------------------------------------------------------------------
 
+# Extra awesome
+
+----------------------------------------------------------------------------- */
+.cart-items {
+    position: absolute;
+    left: 31px;
+    top: 10px;
+    padding: 1px 4px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+}
+
+/* -----------------------------------------------------------------------------
+
 # All Common Styles
 
 ----------------------------------------------------------------------------- */
@@ -671,7 +688,7 @@ nav.mean-nav > ul > li:first-child > a {
 }
 
 .site-logo {
-  padding: 6px 0;
+    padding: 6px 0;
 }
 
 .top-header-area.sepherate-header ul li > a, .top-header-area.sepherate-header .header-icons a {

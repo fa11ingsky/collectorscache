@@ -62,45 +62,38 @@
             $(".hero-text-tablecell h1").addClass("animated fadeInUp").css({'opacity': '0', 'animation-delay' : '0.3s'});
             $(".hero-btns").addClass("animated fadeInUp").css({'opacity': '0', 'animation-delay' : '0.5s'});
         });
-       
+
 
         // stikcy js
         $("#sticker").sticky({
             topSpacing: 0
         });
 
-         // search form
-        $(".search-bar-icon").on("click", function(){
+        // search form
+        $(".search-bar-icon").on("click", function () {
             $(".search-area").addClass("search-active");
         });
 
-        $(".close-btn").on("click", function() {
+        $(".close-btn").on("click", function () {
             $(".search-area").removeClass("search-active");
         });
 
         // Global Cart
         sessionStorage.setItem("cart", JSON.stringify({}));
 
-        // Shopping cart toggle
-        let pageState = false; // is page showing shopping cart? 
+        // Home icon toggle
         $(".home").on("click", () => {
-            pageState = false;
             $(".product-section").load(`pages/products.html`);
         });
-        $(".shopping-cart").on("click", function () {
-            if (pageState) {
-                $(".product-section").load(`pages/products.html`);
-            } else {
-                $(".product-section").load(`pages/checkout.html`);
-            }
-            pageState = !pageState;
+
+        // Shopping cart toggle
+        $(".shopping-cart").on("click", () => {
+            $(".product-section").load(`pages/checkout.html`);
         });
 
         // Initial page
         $(".product-section").load(`pages/products.html`);
-        
-        // Add to cart
-        
+
     });
 
 

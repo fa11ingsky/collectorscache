@@ -63,8 +63,8 @@
                             <ul>
                                 <li>
                                     <div class="header-icons">
-                                        <a class="home" href="#"><i class="fas fa-home"></i></a>
-                                        <a class="shopping-cart" href="#"><i class="fas fa-shopping-cart"></i></a>
+                                        <a class="shopping-cart" href="#"><i class="fas fa-lg fa-shopping-cart"></i><span class="cart-items fas">0</span></a>
+                                        <a class="home" href="#"><i class="fas fa-lg fa-home"></i></a>
                                         <!--<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>-->
                                     </div>
                                 </li>
@@ -78,24 +78,6 @@
         </div>
     </div>
     <!-- end header -->
-    <!-- search area 
-    <div class="search-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <span class="close-btn"><i class="fas fa-window-close"></i></span>
-                    <div class="search-bar">
-                        <div class="search-bar-tablecell">
-                            <h3>Search For:</h3>
-                            <input type="text" placeholder="Keywords">
-                            <button type="submit">Search <i class="fas fa-search"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-     end search area -->
     <!-- breadcrumb-section (title area) -->
     <div class="breadcrumb-section breadcrumb-bg">
         <div class="container">
@@ -112,7 +94,13 @@
     <!-- end breadcrumb section -->
     <!-- products -->
     <div class="product-section mt-100 mb-150">
-        JavaScript is required for this site!
+        <noscript class="nojs">JavaScript is required for this site!</noscript>
+        <!--PreLoader-->
+        <div class="loader">
+            <div class="loader-inner">
+                <div class="circle"></div>
+            </div>
+        </div>
     </div>
     <!-- end products -->
     <!-- footer -->
@@ -160,9 +148,7 @@
                         <ul>
                             <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                             <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fa fa-earth-americas"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -174,8 +160,6 @@
     <script src="assets/js/jquery-3.6.1.min.js"></script>
     <!-- bootstrap -->
     <script src="assets/bootstrap/bootstrap.min.js"></script>
-    <!-- count down -->
-    <script src="assets/js/jquery.countdown.js"></script>
     <!-- isotope -->
     <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
     <!-- waypoints -->

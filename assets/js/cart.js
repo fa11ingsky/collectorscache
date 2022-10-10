@@ -36,8 +36,6 @@ $.getJSON("assets/inventory.json", (inventory) => {
 
     $(".cartEntries").html(cartList);
 
-
-
     // paypal button
     function initPayPalButton() {
         paypal.Buttons({
@@ -77,7 +75,6 @@ $.getJSON("assets/inventory.json", (inventory) => {
         }).render('#paypal-button-container');
     }
     initPayPalButton();
-
 });
 
 

@@ -183,14 +183,20 @@ p:last-child {
 .loader {
   bottom: 0;
   height: 100%;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
   width: 100%;
-  z-index: 1111;
+  z-index: 1;
   background: #fff;
   overflow-x: hidden;
+  position:absolute;
+}
+
+.nojs{
+    z-index:4;
+    width:100%;
+    position:absolute;
+    height:100%;
+    background-color:#fff;
+    text-align:center;
 }
 
 .loader-inner {
@@ -202,7 +208,6 @@ p:last-child {
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   height: 50px;
-  width: 50px;
 }
 
 .circle {
@@ -515,7 +520,7 @@ a.boxed-btn, a.bordered-btn, a.cart-btn {
   background-size: cover;
   background-position: center center;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   background-attachment: fixed;
   padding: 50px 0 50px;
 }
@@ -647,6 +652,7 @@ ul.sub-menu li:last-child {
 }
 
 .main-menu-wrap {
+  z-index:3;
   position: relative;
 }
 

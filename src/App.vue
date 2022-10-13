@@ -8,7 +8,7 @@
                         <!-- logo -->
                         <div class="site-logo">
                             <a href="index.html">
-                                <img src="assets/img/armourscope-title.png" alt="">
+                                <img src="/img/armourscope-title.png" alt="">
                             </a>
                         </div>
                         <!-- logo -->

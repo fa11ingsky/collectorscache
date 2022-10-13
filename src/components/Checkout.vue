@@ -8,7 +8,7 @@
         <div class="cartEntries">
             <div class="Cart-Items" v-for="(data,product) in $root.cart">
                 <div class="image-box">
-                    <img :src="'assets/img/products/'+$root.inventory[product].img" />
+                    <img :src="'img/products/'+$root.inventory[product].img" />
                 </div>
                 <div class="about">
                     <h3 class="title">{{product}}</h3>

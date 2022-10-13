@@ -1,2 +1,2 @@
-# collectorscache
-Collectors Cache by ArmourScope
+# BountyBox
+Bounty Box by ArmourScope

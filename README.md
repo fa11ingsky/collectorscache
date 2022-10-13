@@ -3,3 +3,10 @@
 
 Bounty Box by ArmourScope
 
+Build and run local dev environment: 
+```
+npm install
+npm run dev
+```
+
+

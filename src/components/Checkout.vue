@@ -37,7 +37,7 @@
             </div>
             <div id="smart-button-container">
                 <div style="text-align: center;">
-                    <div id="paypal-button-container" ref="vuePaypal"></div>
+                    <div id="paypal-button-container"></div>
                 </div>
             </div>
         </div>
@@ -105,8 +105,6 @@
                     this.description +=  this.$root.cart[product] > 0 ? `${product} x${this.$root.cart[product]} ; `  : ''
                 }
                 localStorage.cart = JSON.stringify(this.$root.cart)
-                // clear paypal html
-                this.$refs.vuePaypal.innerHTML = ""
             }
         },
         mounted() {

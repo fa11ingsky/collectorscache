@@ -18,7 +18,7 @@
                     <div v-for="(data,product) in chunk" class="col-md-4  text-center pokemon">
                             <div class="single-product-item">
                                 <div class="product-image">
-                                    <a><img :src="'assets/img/products/'+data.img" /></a>
+                                    <a><img :src="'img/products/'+data.img" /></a>
                                 </div>
                                 <h3>{{product}}</h3>
                                 <p class="product-price"> ${{data.price}} </p>

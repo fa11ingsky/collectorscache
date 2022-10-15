@@ -14,6 +14,7 @@ node_modules
 dist-ssr
 coverage
 *.local
+public/img/products/build_inventory.py
 
 /cypress/videos/
 /cypress/screenshots/

@@ -5,11 +5,13 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --port 4173",
-    "lint": "eslint --ignore-path .gitignore ."
+    "lint": "eslint --ignore-path .gitignore .",
+    "deploy": "node bin/deploy.js"
   },
   "dependencies": {
     "bootstrap": "^5.2.2",
     "eslint": "^8.25.0",
+    "shelljs": "^0.8.5",
     "vue": "^3.2.38"
   },
   "devDependencies": {

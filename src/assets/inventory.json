@@ -51,17 +51,17 @@
     },
     "Professor's Research (SWSH1 201)": {
         "img": "SWSH1_EN_201.png",
-        "price": "60",
+        "price": 60,
         "cart": "SWSH1_EN_201"
     },
     "Bronzong (SWSH6 223)": {
         "img": "SWSH6_EN_223.png",
-        "price": "50",
+        "price": 50,
         "cart": "SWSH6_EN_223"
     },
     "Charizard (Base Set)": {
         "img": "Charizard_Base.jpg",
-        "price": "50,000",
+        "price": 50000,
         "cart": "Charizard_Base"
     }
 }

@@ -15,6 +15,7 @@ dist-ssr
 coverage
 *.local
 public/img/products/build_inventory.py
+bin/*
 
 /cypress/videos/
 /cypress/screenshots/

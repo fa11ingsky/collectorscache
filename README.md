@@ -16,6 +16,7 @@ git checkout main
 git pull
 # Build project
 npm run build
+cp CNAME dist/
 # Commit /dist
 git commit dist -m "Deployment"
 # Force push the subtree

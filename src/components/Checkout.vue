@@ -54,7 +54,7 @@
         },
         methods: {
             removeItem: function (product) {
-                this.$root.cart[product] -= 1
+                this.$root.cart[product] = 0
                 this.refreshCart()
             },
             clearCart: function () {
@@ -73,7 +73,6 @@
                     },
 
                     createOrder: function (data, actions) {
-                        console.log(self)
                         return actions.order.create({
                             purchase_units: [{ "description": self.description, "amount": { "currency_code": "AUD", "value": self.subtotal } }]
                         });

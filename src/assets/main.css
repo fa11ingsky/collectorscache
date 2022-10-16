@@ -2472,11 +2472,13 @@ a.cart-btn {
 
 .single-product-img img {
     border-radius: 5px;
+    max-width: 350px;
     -webkit-box-shadow: 0 0 20px #ddd;
     box-shadow: 0 0 20px #ddd;
 }
 
 .single-product-content h3 {
+    color: black;
     font-size: 22px;
     font-weight: 600;
 }

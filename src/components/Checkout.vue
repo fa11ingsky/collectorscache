@@ -2,7 +2,7 @@
     <div class="CartContainer container">
         <div class="Header">
             <h3 class="Heading">Shopping Cart</h3>
-            <h5 class="Action">Remove all</h5>
+            <h5 class="Action" @click="clearCart()">Remove all</h5>
         </div>
 
         <div class="cartEntries">
@@ -15,13 +15,13 @@
                         <h3 class="title">{{product}}</h3>
                     </div>
                     <div class="counter">
-                        <i class="fa-solid fa-circle-plus"></i>
+                        <a class="fa-solid fa-circle-plus" @click="modItem(product,1)"></a>
                         <div class="count">{{$root.cart[product]}}</div>
-                        <i class="fa-solid fa-circle-minus"></i>
+                        <a class="fa-solid fa-circle-minus" @click="modItem(product,-1)"></a>
                     </div>
                     <div class="prices">
                         <div class="amount">{{$root.inventory[product].price * $root.cart[product]}}</div>
-                        <div class="remove" @click="removeItem(product)"><u>Remove</u></div>
+                        <div class="remove" @click="modItem(product,0)"><u>Remove</u></div>
                     </div>
                 </template>
             </div>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="cart-total">${{subtotal}}</div>
             </div>
-            <div id="smart-button-container">
+            <div v-if="Object.keys($root.cart).length>0" id="smart-button-container">
                 <div style="text-align: center;">
                     <div id="paypal-button-container"></div>
                 </div>
@@ -53,9 +53,17 @@
             }
         },
         methods: {
-            removeItem: function (product) {
-                this.$root.cart[product] -= 1
-                this.calculateTotal()
+            modItem: function (product, val) {
+                if (val == 0) {
+                    this.$root.cart[product] = val
+                } else {
+                    this.$root.cart[product] += val
+                }
+                this.refreshCart()
+            },
+            clearCart: function () {
+                this.$root.cart = {}
+                this.refreshCart()
             },
             // paypal button
             initPayPalButton: function (self) {
@@ -69,7 +77,6 @@
                     },
 
                     createOrder: function (data, actions) {
-                        console.log(self)
                         return actions.order.create({
                             purchase_units: [{ "description": self.description, "amount": { "currency_code": "AUD", "value": self.subtotal } }]
                         });
@@ -95,21 +102,23 @@
                     }
                 }).render('#paypal-button-container');
             },
-            calculateTotal: function () {
+            refreshCart: function () {
                 this.subtotal = 0
                 this.$root.cartItems = 0
                 this.description = ""
                 for (let product in this.$root.cart) {
                     this.subtotal += this.$root.inventory[product].price * this.$root.cart[product];
                     this.$root.cartItems += this.$root.cart[product];
-                    this.description +=  this.$root.cart[product] > 0 ? `${product} x${this.$root.cart[product]} ; `  : ''
+                    this.description += this.$root.cart[product] > 0 ? `${product} x${this.$root.cart[product]} ; ` : ''
                 }
                 localStorage.cart = JSON.stringify(this.$root.cart)
             }
         },
         mounted() {
-            this.calculateTotal()
-            this.initPayPalButton(this)
+            this.refreshCart()
+            if (Object.keys(this.$root.cart).length > 0) {
+                this.initPayPalButton(this)
+            }
         }
     }
 </script>

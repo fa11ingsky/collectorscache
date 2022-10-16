@@ -19,11 +19,11 @@
                         <template v-if="product != 'pageNumber'">
                             <div class="single-product-item">
                                 <div class="product-image">
-                                    <a><img :src="'img/products/'+data.img" /></a>
+                                    <a :href="'#/info='+btoa(product)"><img :src="'img/products/'+data.img" /></a>
                                 </div>
                                 <h3>{{product}}</h3>
                                 <p class="product-price"> ${{data.price}} </p>
-                                <a :class="'.'+data.cart+' cart-btn'" @click="addToCart(product)"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                                <a :class="'.'+data.cart+' cart-btn'" @click="$root.addToCart(product)"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                             </div>
                         </template>    
                     </div>
@@ -48,7 +48,6 @@
 </template>
 
 <script>
-   
     export default {
         name: "Products",
         data() {
@@ -88,14 +87,8 @@
             }
         },
         methods: {
-            addToCart: function (product) {
-                if (product in this.$root.cart) {
-                    this.$root.cart[product] ++
-                } else {
-                    this.$root.cart[product] = 1
-                }
-                localStorage.cart = JSON.stringify(this.$root.cart)
-                this.$root.cartItems += 1
+            btoa: function (s) {
+                return btoa(s)
             }
         }
     }

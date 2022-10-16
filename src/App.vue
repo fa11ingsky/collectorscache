@@ -7,7 +7,7 @@
                     <div class="main-menu-wrap">
                         <!-- logo -->
                         <div class="site-logo">
-                            <a href="index.html">
+                            <a href="#/">
                                 <img src="/img/armourscope-title.png" alt="">
                             </a>
                         </div>
@@ -17,8 +17,8 @@
                             <ul>
                                 <li>
                                     <div class="header-icons">
-                                        <a class="shopping-cart" @click="showProducts=false" href="#"><i class="fas fa-lg fa-shopping-cart"></i><span class="cart-items fas">{{cartItems}}</span></a>
-                                        <a class="home" @click="showProducts=true" href="#"><i class="fas fa-lg fa-home"></i></a>
+                                        <a class="shopping-cart" href="#/checkout"><i class="fas fa-lg fa-shopping-cart"></i><span class="cart-items fas">{{cartItems}}</span></a>
+                                        <a class="home" href="#/"><i class="fas fa-lg fa-home"></i></a>
                                         <!--<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>-->
                                     </div>
                                 </li>
@@ -48,8 +48,7 @@
     <!-- end breadcrumb section -->
     <!-- products -->
     <div class="product-section mt-100 mb-150">
-        <products-component v-if="showProducts"/>
-        <checkout-component v-if="!showProducts" />
+        <component :is="currentView"/>
         <noscript class="nojs">JavaScript is required for this site!</noscript>
         <!--PreLoader-->
         <Transition>
@@ -80,16 +79,6 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-box subscribe">
-                        <h2 class="widget-title">Subscribe</h2>
-                        <p>Subscribe to our mailing list to get the latest updates.</p>
-                        <form action="index.html">
-                            <input type="email" placeholder="Email">
-                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -104,9 +93,9 @@
                 <div class="col-lg-6 text-right col-md-12">
                     <div class="social-icons">
                         <ul>
-                            <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-earth-americas"></i></a></li>
+                            <li><a href="#/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#/" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#/" target="_blank"><i class="fa fa-earth-americas"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -118,7 +107,16 @@
 <script>
     import Checkout from './components/Checkout.vue'
     import Products from './components/Products.vue'
+    import ProductInfo from "./components/ProductInfo.vue"
+    import NotFound from "./components/NotFound.vue"
     import json from "./assets/inventory.json"
+
+    const routes = {
+        '/checkout': Checkout,
+        '/': Products,
+        '/info': ProductInfo
+    }
+
     export default {
         name: "AppModel",
         components: {
@@ -127,14 +125,36 @@
         },
         data() {
             return {
-                showProducts: true,
                 loading: true,
                 cartItems: 0,
                 cart: {},
-                inventory: json
+                inventory: json,
+                currentPath: window.location.hash
+            }
+        },
+        methods: {
+            addToCart: function (product) {
+                if (product in this.cart) {
+                    this.cart[product] ++
+                } else {
+                    this.cart[product] = 1
+                }
+                localStorage.cart = JSON.stringify(this.cart)
+                this.cartItems += 1
+            }
+        },
+        computed: {
+            // Render component based on hash value
+            currentView() {
+                return routes[this.currentPath.slice(1).split('=')[0] || '/'] || NotFound
             }
         },
         mounted() {
+            // Regist page change listener
+            window.addEventListener('hashchange', () => {
+                this.currentPath = window.location.hash
+            })
+
             this.loading = !this.loading
             // fetch cart
             this.cart = localStorage.cart ? JSON.parse(localStorage.cart) : {}

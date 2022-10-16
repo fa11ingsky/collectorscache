@@ -36,9 +36,9 @@
                         <ul>
                             <li><a @click="pageNumber=pageNumber>1 ? pageNumber-1 : pageNumber">Prev</a></li>
                             <li><a :class="pageNumber==1 ? 'active' : ''" @click="pageNumber=pageNumber>1 ? pageNumber-1 : pageNumber">{{pageNumber>1 ? pageNumber-1 : pageNumber}}</a></li>
-                            <li><a :class="(pageNumber!=1 && pageNumber!=Math.ceil(items/3)+1) ? 'active' : ''" @click="pageNumber=pageNumber>1 ? pageNumber : pageNumber+1">{{pageNumber>1 ? pageNumber : pageNumber+1}}</a></li>
-                            <li><a @click="pageNumber=pageNumber>1 ? (pageNumber <= Math.ceil(items/3)-1 ? pageNumber+1 : pageNumber) : pageNumber+2">{{pageNumber>1 ? pageNumber+1 : pageNumber+2}}</a></li>
-                            <li><a @click="pageNumber=pageNumber <= Math.ceil(items/3)-1 ? pageNumber+1 : pageNumber">Next</a></li>
+                            <li><a :class="(pageNumber!=1 && pageNumber != maxPage+1) ? 'active' : ''" @click="pageNumber=pageNumber>1 ? pageNumber : pageNumber+1">{{pageNumber>1 ? pageNumber : pageNumber+1}}</a></li>
+                            <li><a @click="pageNumber=pageNumber>1 ? (pageNumber<=maxPage-1 ? pageNumber+1 : pageNumber) : pageNumber+2">{{pageNumber>1 ? pageNumber+1 : pageNumber+2}}</a></li>
+                            <li><a @click="pageNumber=pageNumber<=maxPage-1 ? pageNumber+1 : pageNumber">Next</a></li>
                         </ul>
                     </div>
                 </div>
@@ -55,22 +55,25 @@
             return {
                 "chunks": [],
                 "pageNumber": 1,
-                "items": 0
+                "items": 0,
+                "layout": [3,2]
             }
         },
         mounted() {
-            // chunk up inventory into rows of 3
+            // chunk up inventory into rows of 3, 2 rows per page
             let entries = 1
             let pageNumber = 1
             let count = 1
             let chunk = {}
             for (let product in this.$root.inventory) {
                 chunk[product] = this.$root.inventory[product]
-                if (entries % 3 == 0) {
+                if (entries % this.layout[0] == 0) {
                     chunk.pageNumber = pageNumber
-                    pageNumber ++
                     this.chunks.push(chunk)
                     chunk = {}
+                    if (this.chunks.length % this.layout[1] == 0) {
+                        pageNumber ++
+                    }            
                 }                
                 entries += 1
             }
@@ -78,6 +81,11 @@
             chunk.pageNumber = pageNumber
             this.chunks.push(chunk)
 
+        },
+        computed: { 
+            maxPage() {
+                return Math.ceil(this.items/(this.layout[0]*this.layout[1]))
+            }
         },
         methods: {
             addToCart: function (product) {

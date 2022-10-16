@@ -7,7 +7,7 @@
                     <div class="main-menu-wrap">
                         <!-- logo -->
                         <div class="site-logo">
-                            <a href="/">
+                            <a href="#/">
                                 <img src="/img/armourscope-title.png" alt="">
                             </a>
                         </div>
@@ -79,16 +79,6 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-box subscribe">
-                        <h2 class="widget-title">Subscribe</h2>
-                        <p>Subscribe to our mailing list to get the latest updates.</p>
-                        <form action="index.html">
-                            <input type="email" placeholder="Email">
-                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -103,9 +93,9 @@
                 <div class="col-lg-6 text-right col-md-12">
                     <div class="social-icons">
                         <ul>
-                            <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-earth-americas"></i></a></li>
+                            <li><a href="#/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#/" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#/" target="_blank"><i class="fa fa-earth-americas"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -117,7 +107,16 @@
 <script>
     import Checkout from './components/Checkout.vue'
     import Products from './components/Products.vue'
+    import ProductInfo from "./components/ProductInfo.vue"
+    import NotFound from "./components/NotFound.vue"
     import json from "./assets/inventory.json"
+
+    const routes = {
+        '/checkout': Checkout,
+        '/': Products,
+        '/info': ProductInfo
+    }
+
     export default {
         name: "AppModel",
         components: {
@@ -133,13 +132,21 @@
                 currentPath: window.location.hash
             }
         },
-        computed: {
-            currentView() {
-                let component = Products
-                if (( this.currentPath.slice(1) || '/') == '/checkout') {
-                    component = Checkout
+        methods: {
+            addToCart: function (product) {
+                if (product in this.cart) {
+                    this.cart[product] ++
+                } else {
+                    this.cart[product] = 1
                 }
-                return component
+                localStorage.cart = JSON.stringify(this.cart)
+                this.cartItems += 1
+            }
+        },
+        computed: {
+            // Render component based on hash value
+            currentView() {
+                return routes[this.currentPath.slice(1).split('=')[0] || '/'] || NotFound
             }
         },
         mounted() {

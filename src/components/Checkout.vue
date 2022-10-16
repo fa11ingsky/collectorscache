@@ -15,13 +15,13 @@
                         <h3 class="title">{{product}}</h3>
                     </div>
                     <div class="counter">
-                        <i class="fa-solid fa-circle-plus"></i>
+                        <a class="fa-solid fa-circle-plus" @click="modItem(product,1)"></a>
                         <div class="count">{{$root.cart[product]}}</div>
-                        <i class="fa-solid fa-circle-minus"></i>
+                        <a class="fa-solid fa-circle-minus" @click="modItem(product,-1)"></a>
                     </div>
                     <div class="prices">
                         <div class="amount">{{$root.inventory[product].price * $root.cart[product]}}</div>
-                        <div class="remove" @click="removeItem(product)"><u>Remove</u></div>
+                        <div class="remove" @click="modItem(product,0)"><u>Remove</u></div>
                     </div>
                 </template>
             </div>
@@ -53,8 +53,12 @@
             }
         },
         methods: {
-            removeItem: function (product) {
-                this.$root.cart[product] = 0
+            modItem: function (product, val) {
+                if (val == 0) {
+                    this.$root.cart[product] = val
+                } else {
+                    this.$root.cart[product] += val
+                }
                 this.refreshCart()
             },
             clearCart: function () {
@@ -105,7 +109,7 @@
                 for (let product in this.$root.cart) {
                     this.subtotal += this.$root.inventory[product].price * this.$root.cart[product];
                     this.$root.cartItems += this.$root.cart[product];
-                    this.description +=  this.$root.cart[product] > 0 ? `${product} x${this.$root.cart[product]} ; `  : ''
+                    this.description += this.$root.cart[product] > 0 ? `${product} x${this.$root.cart[product]} ; ` : ''
                 }
                 localStorage.cart = JSON.stringify(this.$root.cart)
             }

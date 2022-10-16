@@ -7,7 +7,7 @@
                     <div class="main-menu-wrap">
                         <!-- logo -->
                         <div class="site-logo">
-                            <a href="index.html">
+                            <a href="/">
                                 <img src="/img/armourscope-title.png" alt="">
                             </a>
                         </div>
@@ -17,8 +17,8 @@
                             <ul>
                                 <li>
                                     <div class="header-icons">
-                                        <a class="shopping-cart" @click="showProducts=false" href="#"><i class="fas fa-lg fa-shopping-cart"></i><span class="cart-items fas">{{cartItems}}</span></a>
-                                        <a class="home" @click="showProducts=true" href="#"><i class="fas fa-lg fa-home"></i></a>
+                                        <a class="shopping-cart" href="#/checkout"><i class="fas fa-lg fa-shopping-cart"></i><span class="cart-items fas">{{cartItems}}</span></a>
+                                        <a class="home" href="#/"><i class="fas fa-lg fa-home"></i></a>
                                         <!--<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>-->
                                     </div>
                                 </li>
@@ -48,8 +48,7 @@
     <!-- end breadcrumb section -->
     <!-- products -->
     <div class="product-section mt-100 mb-150">
-        <products-component v-if="showProducts"/>
-        <checkout-component v-if="!showProducts" />
+        <component :is="currentView"/>
         <noscript class="nojs">JavaScript is required for this site!</noscript>
         <!--PreLoader-->
         <Transition>
@@ -127,14 +126,28 @@
         },
         data() {
             return {
-                showProducts: true,
                 loading: true,
                 cartItems: 0,
                 cart: {},
-                inventory: json
+                inventory: json,
+                currentPath: window.location.hash
+            }
+        },
+        computed: {
+            currentView() {
+                let component = Products
+                if (( this.currentPath.slice(1) || '/') == '/checkout') {
+                    component = Checkout
+                }
+                return component
             }
         },
         mounted() {
+            // Regist page change listener
+            window.addEventListener('hashchange', () => {
+                this.currentPath = window.location.hash
+            })
+
             this.loading = !this.loading
             // fetch cart
             this.cart = localStorage.cart ? JSON.parse(localStorage.cart) : {}

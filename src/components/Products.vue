@@ -18,11 +18,11 @@
                     <div v-for="(data,product) in chunk" class="col-md-4  text-center pokemon">
                             <div class="single-product-item">
                                 <div class="product-image">
-                                    <a><img :src="'img/products/'+data.img" /></a>
+                                    <a :href="'#/info='+btoa(product)"><img :src="'img/products/'+data.img" /></a>
                                 </div>
                                 <h3>{{product}}</h3>
                                 <p class="product-price"> ${{data.price}} </p>
-                                <a :class="'.'+data.cart+' cart-btn'" @click="addToCart(product)"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                                <a :class="'.'+data.cart+' cart-btn'" @click="$root.addToCart(product)"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                             </div>
                     </div>
                 </div>
@@ -32,11 +32,11 @@
                 <div class="col-lg-12 text-center">
                     <div class="pagination-wrap">
                         <ul>
-                            <li><a href="#">Prev</a></li>
-                            <li><a href="#">1</a></li>
+                            <li><a href="#/">Prev</a></li>
+                            <li><a href="#/">1</a></li>
                             <li><a class="active" href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">Next</a></li>
+                            <li><a href="#/">3</a></li>
+                            <li><a href="#/">Next</a></li>
                         </ul>
                     </div>
                 </div>
@@ -46,7 +46,6 @@
 </template>
 
 <script>
-   
     export default {
         name: "Products",
         data() {
@@ -70,14 +69,8 @@
 
         },
         methods: {
-            addToCart: function (product) {
-                if (product in this.$root.cart) {
-                    this.$root.cart[product] ++
-                } else {
-                    this.$root.cart[product] = 1
-                }
-                localStorage.cart = JSON.stringify(this.$root.cart)
-                this.$root.cartItems += 1
+            btoa: function (s) {
+                return btoa(s)
             }
         }
     }

@@ -17,6 +17,10 @@
     align-items: center;
 }
 
+i.fa-lg {
+    font-size: 1.7em;
+}
+
 .Heading {
     font-size: 20px;
     font-weight: 700;

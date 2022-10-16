@@ -2,7 +2,7 @@
     <div class="CartContainer container">
         <div class="Header">
             <h3 class="Heading">Shopping Cart</h3>
-            <h5 class="Action">Remove all</h5>
+            <h5 class="Action" @click="clearCart()">Remove all</h5>
         </div>
 
         <div class="cartEntries">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="cart-total">${{subtotal}}</div>
             </div>
-            <div id="smart-button-container">
+            <div v-if="Object.keys($root.cart).length>0" id="smart-button-container">
                 <div style="text-align: center;">
                     <div id="paypal-button-container"></div>
                 </div>
@@ -55,7 +55,11 @@
         methods: {
             removeItem: function (product) {
                 this.$root.cart[product] -= 1
-                this.calculateTotal()
+                this.refreshCart()
+            },
+            clearCart: function () {
+                this.$root.cart = {}
+                this.refreshCart()
             },
             // paypal button
             initPayPalButton: function (self) {
@@ -95,7 +99,7 @@
                     }
                 }).render('#paypal-button-container');
             },
-            calculateTotal: function () {
+            refreshCart: function () {
                 this.subtotal = 0
                 this.$root.cartItems = 0
                 this.description = ""
@@ -108,8 +112,10 @@
             }
         },
         mounted() {
-            this.calculateTotal()
-            this.initPayPalButton(this)
+            this.refreshCart()
+            if (Object.keys(this.$root.cart).length > 0) {
+                this.initPayPalButton(this)
+            }
         }
     }
 </script>

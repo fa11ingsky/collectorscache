@@ -213,26 +213,26 @@
 
 /* Mobile Layout: 320px. */
 @media only screen and (max-width: 767px) {
-    .checkout {
-        float: none;
-        padding-top: 20px;
-        margin: auto;
-        width: 50%;
-    }
+  .checkout {
+      float: none;
+      padding-top: 20px;
+      margin: auto;
+      width: 50%;
+  }
     
-    .product-row {
-    margin: auto;
-    width: 100%;
+  .product-row {
+      margin: auto;
+      width: 100%;
 	}
 
 	.product-width {
-    max-width: 100%;
+      max-width: 100%;
 	}
-    
-    .title {
-        font-size: 0.8rem;
-        line-height: 1rem;
-    }
+
+  .title {
+      font-size: 0.8rem;
+      line-height: 1rem;
+  }
 
 	.site-logo img {
 	    max-width: 150px;

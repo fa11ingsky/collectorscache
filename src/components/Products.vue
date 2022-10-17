@@ -12,10 +12,10 @@
             </div>
         </div>
 
-        <div class="products">
+        <div class="product-section">
             <div v-for="chunk in chunks">
                 <div class="row product-row" v-if="pageNumber == chunk.pageNumber">
-                    <div v-for="(data,product) in chunk" class="col-md-4  text-center pokemon">
+                    <div v-for="(data,product) in chunk" class="col-md-4 text-center cart-bottom product-width pokemon">
                         <template v-if="product != 'pageNumber'">
                             <div class="single-product-item">
                                 <div class="product-image">

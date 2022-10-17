@@ -64,19 +64,18 @@
     <div class="footer-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-6 text-center">
                     <div class="footer-box about-widget">
                         <h2 class="widget-title">About us</h2>
-                        <p>Bounty Box is an ArmourScope affiliate.</p>
+                            <p>Bounty Box is an ArmourScope affiliate.</p>
+                            <p>Registered ABN 40136037247.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-6 text-center">
                     <div class="footer-box get-in-touch">
-                        <h2 class="widget-title">Get in Touch</h2>
-                        <ul>
-                            <li>Canberra, ACT, Australia</li>
-                            <li>contact.armourscope@gmail.com</li>
-                        </ul>
+                        <h2 class="widget-title">Get in touch</h2>
+                            <p>Canberra, ACT, Australia</p>
+                            <p>contact.armourscope@gmail.com</p>
                     </div>
                 </div>
             </div>
@@ -87,16 +86,16 @@
     <div class="copyright">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-12">
-                    <p>Copyrights &copy; 2022 - <a href="https://www.armourscope.com/">ArmourScope</a>,  All Rights Reserved.</p>
-                </div>
-                <div class="col-lg-6 text-right col-md-12">
+                <div class="text-center">
                     <div class="social-icons">
-                        <ul>
-                            <li><a href="#/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#/" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#/" target="_blank"><i class="fa fa-earth-americas"></i></a></li>
-                        </ul>
+                    <ul>
+                        <li><a href="#/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#/" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#/" target="_blank"><i class="fa fa-earth-americas"></i></a></li>
+                    </ul>
+                    </div>
+                    <div class="text-center">
+                     <p>Copyrights &copy; 2022 - <a href="https://www.armourscope.com/">ArmourScope</a>,  All Rights Reserved.</p>   
                     </div>
                 </div>
             </div>

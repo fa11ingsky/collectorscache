@@ -26,15 +26,25 @@
                 </template>
             </div>
         </div>
+        <!-- Shipping calculator -->
+        <div>
+
+        </div>
         <hr>
         <div class="checkout">
-            <div class="total">
-                <div>
-                    <div class="subtotal">Sub-Total</div>
-                    <div class="total-items items">{{this.$root.cartItems}} items</div>
-                </div>
-                <div class="cart-total">${{subtotal}}</div>
+            <div class="row">
+                <div class="subtotal col">Sub-Total</div>
+                <div class="cost col">${{subtotal}}</div>
             </div>
+            <div class="row">
+                <div class="total-items items col">{{this.$root.cartItems}} items</div>
+            </div>
+            <div class="row">
+                <div class="col">Shipping</div>
+                <div class="cost col">${{shipping}}</div>
+            </div>
+            </div><hr><div class="checkout"> 
+            
             <div v-if="Object.keys($root.cart).length>0" id="smart-button-container">
                 <div style="text-align: center;">
                     <div id="paypal-button-container"></div>
@@ -49,7 +59,8 @@
         data() {
             return {
                 subtotal: 0,
-                description: ""
+                description: "",
+                shipping: 0
             }
         },
         methods: {

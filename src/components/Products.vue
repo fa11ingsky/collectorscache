@@ -12,10 +12,10 @@
             </div>
         </div>
 
-        <div class="products">
+        <div class="product-section">
             <div v-for="chunk in chunks">
                 <div class="row product-row" v-if="pageNumber == chunk.pageNumber">
-                    <div v-for="(data,product) in chunk" class="col-md-4  text-center pokemon">
+                    <div v-for="(data,product) in chunk" class="col-md-4 text-center cart-bottom product-width pokemon">
                         <template v-if="product != 'pageNumber'">
                             <div class="single-product-item">
                                 <div class="product-image">
@@ -34,11 +34,11 @@
                 <div class="col-lg-12 text-center">
                     <div class="pagination-wrap">
                         <ul>
-                            <li><a @click="pageNumber=pageNumber>1 ? pageNumber-1 : pageNumber">Prev</a></li>
-                            <li><a :class="pageNumber==1 ? 'active' : ''" @click="pageNumber=pageNumber>1 ? pageNumber-1 : pageNumber">{{pageNumber>1 ? pageNumber-1 : pageNumber}}</a></li>
-                            <li><a :class="(pageNumber!=1 && pageNumber != maxPage+1) ? 'active' : ''" @click="pageNumber=pageNumber>1 ? pageNumber : pageNumber+1">{{pageNumber>1 ? pageNumber : pageNumber+1}}</a></li>
-                            <li><a @click="pageNumber=pageNumber>1 ? (pageNumber<=maxPage-1 ? pageNumber+1 : pageNumber) : pageNumber+2">{{pageNumber>1 ? pageNumber+1 : pageNumber+2}}</a></li>
-                            <li><a @click="pageNumber=pageNumber<=maxPage-1 ? pageNumber+1 : pageNumber">Next</a></li>
+                            <li><a @click="setPageNumber('prev')">Prev</a></li>
+                            <li><a :class="pageNumber==1 ? 'active' : ''" @click="setPageNumber('first')">{{pageNumber>1 ? pageNumber-1 : pageNumber}}</a></li>
+                            <li><a :class="(pageNumber!=1 && pageNumber != maxPage+1) ? 'active' : ''" @click="setPageNumber('mid')">{{pageNumber>1 ? pageNumber : pageNumber+1}}</a></li>
+                            <li><a @click="setPageNumber('last')">{{pageNumber>1 ? pageNumber+1 : pageNumber+2}}</a></li>
+                            <li><a @click="setPageNumber('next')">Next</a></li>
                         </ul>
                     </div>
                 </div>
@@ -87,6 +87,17 @@
             }
         },
         methods: {
+            setPageNumber: function (pos) {
+                window.scrollTo(0,0)
+                const options = {
+                    'prev': this.pageNumber > 1 ? this.pageNumber - 1 : this.pageNumber,
+                    'first': this.pageNumber > 1 ? this.pageNumber - 1 : this.pageNumber,
+                    'mid': this.pageNumber>1 ? this.pageNumber : this.pageNumber+1,
+                    'last': this.pageNumber>1 ? (this.pageNumber<=this.maxPage-1 ? this.pageNumber+1 : this.pageNumber) : this.pageNumber+2,
+                    'next': this.pageNumber<=this.maxPage-1 ? this.pageNumber+1 : this.pageNumber
+                }
+                this.pageNumber = options[pos]
+            },
             btoa: function (s) {
                 return btoa(s)
             }

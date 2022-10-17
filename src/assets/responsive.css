@@ -220,6 +220,10 @@
         width: 50%;
     }
 
+    .CartContainer {
+        width: 100%;
+    }
+
     .title {
         font-size: 0.8rem;
         line-height: 1rem;

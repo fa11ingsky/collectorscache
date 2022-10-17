@@ -9,7 +9,7 @@
             <div class="Cart-Items" v-for="(data,product) in $root.cart">
                 <template v-if="$root.cart[product]>0">
                     <div class="image-box">
-                        <img :src="'img/products/'+$root.inventory[product].img" />
+                        <a :href="'#/info='+btoa(product)"><img :src="'img/products/'+$root.inventory[product].img" /></a>
                     </div>
                     <div class="about">
                         <h3 class="title">{{product}}</h3>
@@ -27,8 +27,13 @@
             </div>
         </div>
         <!-- Shipping calculator -->
-        <div>
-
+        <hr>
+        <div class="shipping-est row">
+            <div class="deliver-to col-sm-3">Ship to:</div>
+            <select v-model="country"  class="col form-select">
+                <option>Australia</option>
+                <option>International</option>
+            </select>
         </div>
         <hr>
         <div class="checkout">
@@ -43,8 +48,15 @@
                 <div class="col">Shipping</div>
                 <div class="cost col">${{shipping}}</div>
             </div>
-            </div><hr><div class="checkout"> 
-            
+            <br />
+            <div class="row">
+                <div class="total col">Total</div>
+                <div class="total cost col">${{subtotal + shipping}}</div>
+            </div>
+        </div>
+        <hr>
+        <div class="checkout">
+
             <div v-if="Object.keys($root.cart).length>0" id="smart-button-container">
                 <div style="text-align: center;">
                     <div id="paypal-button-container"></div>
@@ -54,13 +66,17 @@
     </div>
 </template>
 <script>
-
     export default {
         data() {
             return {
                 subtotal: 0,
                 description: "",
-                shipping: 0
+                country: "Australia"
+            }
+        },
+        computed: {
+            shipping() {
+                return this.country == "Australia" ? 10 : 20
             }
         },
         methods: {
@@ -70,10 +86,14 @@
                 } else {
                     this.$root.cart[product] += val
                 }
+                // Sync cart state with localstorage
+                localStorage.cart = JSON.stringify(this.$root.cart)
                 this.refreshCart()
             },
             clearCart: function () {
                 this.$root.cart = {}
+                // Sync cart state with localstorage
+                localStorage.cart = JSON.stringify(this.$root.cart)
                 this.refreshCart()
             },
             // paypal button
@@ -89,7 +109,7 @@
 
                     createOrder: function (data, actions) {
                         return actions.order.create({
-                            purchase_units: [{ "description": self.description, "amount": { "currency_code": "AUD", "value": self.subtotal } }]
+                            purchase_units: [{ "description": self.description, "amount": { "currency_code": "AUD", "value": self.subtotal + self.shipping } }]
                         });
                     },
 
@@ -113,7 +133,9 @@
                     }
                 }).render('#paypal-button-container');
             },
+            // Pull the cart data from localstorage and re-calculate total items and description for paypal checkout
             refreshCart: function () {
+                this.$root.cart = localStorage.cart ? JSON.parse(localStorage.cart) : {}
                 this.subtotal = 0
                 this.$root.cartItems = 0
                 this.description = ""
@@ -122,7 +144,10 @@
                     this.$root.cartItems += this.$root.cart[product];
                     this.description += this.$root.cart[product] > 0 ? `${product} x${this.$root.cart[product]} ; ` : ''
                 }
-                localStorage.cart = JSON.stringify(this.$root.cart)
+                this.description += `shp${this.shipping} ; `
+            },
+            btoa: function (s) {
+                return btoa(s)
             }
         },
         mounted() {

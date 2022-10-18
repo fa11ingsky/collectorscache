@@ -19,11 +19,11 @@
                         <template v-if="product != 'pageNumber'">
                             <div class="single-product-item">
                                 <div class="product-image">
-                                    <a :href="'#/info='+btoa(product)"><img :src="'img/products/'+data.img" /></a>
+                                    <router-link :to="'/info/'+data.url"><img :src="'img/products/'+data.img" /></router-link>
                                 </div>
                                 <h3>{{product}}</h3>
                                 <p class="product-price"> ${{data.price}} </p>
-                                <a :class="'.'+data.cart+' cart-btn'" @click="$root.addToCart(product)"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                                <a class="cart-btn" @click="$root.addToCart(product)"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                             </div>
                         </template>    
                     </div>
@@ -79,7 +79,6 @@
             this.items = entries
             chunk.pageNumber = pageNumber
             this.chunks.push(chunk)
-
         },
         computed: { 
             maxPage() {
@@ -103,5 +102,4 @@
             }
         }
     }
-
 </script>

@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="single-product-img">
-                        <img :src="'img/products/'+$root.inventory[product].img" alt="">
+                        <img :src="'/img/products/'+$root.inventory[product].img" alt="">
                     </div>
                 </div>
                 <div class="col-md-7">
@@ -14,7 +14,7 @@
                         <p class="single-product-pricing">${{$root.inventory[product].price}}</p>
                         <p>{{$root.inventory[product].description}}</p>
                         <div class="single-product-form">
-                            <a href="#/checkout" class="cart-btn" @click="$root.addToCart(product)"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                            <router-link to="/checkout" class="cart-btn" @click="$root.addToCart(product)"><i class="fas fa-shopping-cart"></i> Add to Cart</router-link>
                             <p><strong>Categories: </strong>{{productTags}}</p>
                         </div>
                     </div>
@@ -76,17 +76,19 @@
             return {
             }
         },
-        mounted: function () {
-            window.scrollTo(0,0)
+        mounted() {
+            window.scrollTo(0, 0)
         },
         computed: {
             product() {
-                let productName = atob(this.$root.currentPath.split('=')[1]) || null
-                if (!productName || !(productName in this.$root.inventory)) {
-                    window.location.href='/'
-                    productName = null
+                let inv = this.$root.inventory
+                let productUrl = this.$route.params.product || null
+                let productName = '' 
+                if (!productUrl || Object.keys(inv).map(p => inv[p].url).indexOf(productUrl) === -1 ){
+                    productUrl = null
+                    window.location.href = '/notfound'
                 }
-                return productName
+                return Object.keys(inv).filter(p => inv[p].url == productUrl)[0]
             },
             productTags() {
                 return ""

@@ -7,9 +7,7 @@
                     <div class="main-menu-wrap">
                         <!-- logo -->
                         <div class="site-logo">
-                            <a href="#/">
-                                <img src="/img/armourscope-title.png" alt="">
-                            </a>
+                            <router-link to="/"><img src="/img/armourscope-title.png" alt=""></router-link>
                         </div>
                         <!-- logo -->
                         <!-- menu start -->
@@ -17,8 +15,8 @@
                             <ul>
                                 <li>
                                     <div class="header-icons">
-                                        <a class="shopping-cart" href="#/checkout"><i class="fas fa-lg fa-shopping-cart"></i><span class="cart-items fas">{{cartItems}}</span></a>
-                                        <a class="home" href="#/"><i class="fas fa-lg fa-home"></i></a>
+                                        <router-link class="shopping-cart" to="/checkout"><i class="fas fa-lg fa-shopping-cart"></i><span class="cart-items fas">{{cartItems}}</span></router-link>
+                                        <router-link class="home" to="/"><i class="fas fa-lg fa-home"></i></router-link>
                                         <!--<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>-->
                                     </div>
                                 </li>
@@ -48,7 +46,7 @@
     <!-- end breadcrumb section -->
     <!-- products -->
     <div class="product-section mt-100 mb-150">
-        <component :is="currentView"/>
+        <router-view></router-view>
         <noscript class="nojs">JavaScript is required for this site!</noscript>
         <!--PreLoader-->
         <Transition>
@@ -89,9 +87,9 @@
                 <div class="text-center">
                     <div class="social-icons">
                     <ul>
-                        <li><a href="#/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#/" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#/" target="_blank"><i class="fa fa-earth-americas"></i></a></li>
+                        <li><router-link to="/" target="_blank"><i class="fab fa-facebook-f"></i></router-link></li>
+                        <li><router-link to="/" target="_blank"><i class="fab fa-twitter"></i></router-link></li>
+                        <li><router-link to="/" target="_blank"><i class="fa fa-earth-americas"></i></router-link></li>
                     </ul>
                     </div>
                     <div class="text-center">
@@ -104,31 +102,16 @@
 </template>
 
 <script>
-    import Checkout from './components/Checkout.vue'
-    import Products from './components/Products.vue'
-    import ProductInfo from "./components/ProductInfo.vue"
-    import NotFound from "./components/NotFound.vue"
+    
     import json from "./assets/inventory.json"
 
-    const routes = {
-        '/checkout': Checkout,
-        '/': Products,
-        '/info': ProductInfo
-    }
-
     export default {
-        name: "AppModel",
-        components: {
-            "products-component": Products,
-            "checkout-component": Checkout
-        },
         data() {
             return {
                 loading: true,
                 cartItems: 0,
                 cart: {},
-                inventory: json,
-                currentPath: window.location.hash
+                inventory: json
             }
         },
         methods: {
@@ -142,19 +125,9 @@
                 this.cartItems += 1
             }
         },
-        computed: {
-            // Render component based on hash value
-            currentView() {
-                return routes[this.currentPath.slice(1).split('=')[0] || '/'] || NotFound
-            }
-        },
         mounted() {
-            // Regist page change listener
-            window.addEventListener('hashchange', () => {
-                this.currentPath = window.location.hash
-            })
-
             this.loading = !this.loading
+
             // fetch cart
             this.cart = localStorage.cart ? JSON.parse(localStorage.cart) : {}
             for (let product in this.cart) {

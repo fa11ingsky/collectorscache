@@ -9,7 +9,7 @@
             <div class="Cart-Items" v-for="(data,product) in $root.cart">
                 <template v-if="$root.cart[product]>0">
                     <div class="image-box">
-                        <a :href="'#/info='+btoa(product)"><img :src="'img/products/'+$root.inventory[product].img" /></a>
+                        <a :href="'/info/'+$root.inventory[product].url"><img :src="'/img/products/'+$root.inventory[product].img" /></a>
                     </div>
                     <div class="about">
                         <h3 class="title">{{product}}</h3>

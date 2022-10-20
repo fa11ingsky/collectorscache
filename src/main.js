@@ -23,9 +23,9 @@ const loadComponent = {
 
 const routes = [
     { path: '/', component: loadComponent['Products'] },
-    { path: '/checkout', component: loadComponent['Checkout'] },
-    { path: '/info/:product', component: loadComponent['ProductInfo'] },
-    { path: '/:pathMatch(.*)*', name: 'NotFound', component: loadComponent['NotFound'] }
+    { path: '/bountybox/checkout', component: loadComponent['Checkout'] },
+    { path: '/bountybox/info/:product', component: loadComponent['ProductInfo'] },
+    { path: '/bountybox/:pathMatch(.*)*', name: 'NotFound', component: loadComponent['NotFound'] }
 ]
 
 const router = createRouter({

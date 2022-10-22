@@ -60,6 +60,19 @@
         },
         mounted() {
             // chunk up inventory into rows of 3, 2 rows per page
+            /*
+             * Chunks looks like 
+             *  [ 
+             *      chunk0 -> {
+             *          product0 -> 'card name': {price, tags, etc} 
+             *          productN -> ... 
+             *          pageNumber -> 1
+             *      }
+             *      chunkN -> 
+             *  
+             *  ]
+             *  
+             */
             let entries = 1
             let pageNumber = 1
             let chunk = {}

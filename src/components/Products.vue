@@ -12,7 +12,6 @@
             </div>
         </div>
 
-        <div class="product-section">
             <div v-for="chunk in chunks">
                 <div class="row product-row" v-if="pageNumber == chunk.pageNumber">
                     <div v-for="(data,product) in chunk" class="col-md-4 text-center cart-bottom product-width pokemon">
@@ -43,7 +42,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </template>
 

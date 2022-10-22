@@ -4,9 +4,9 @@
             <div class="col-md-12">
                 <div class="product-filters">
                     <ul>
-                        <li class="active" data-filter="*">All</li>
-                        <li data-filter=".pokemon">Pokemon</li>
-                        <li data-filter=".mats">Mats</li>
+                        <li :class="filter=='all' ? 'active' : ''" @click="filter='all';pageNumber=1">All</li>
+                        <li :class="filter=='pokemon' ? 'active' : ''" @click="filter='pokemon';pageNumber=1">Pokemon</li>
+                        <li :class="filter=='mats' ? 'active' : ''" @click="filter='mats';pageNumber=1">Mats</li>
                     </ul>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                                 <p class="product-price"> ${{data.price}} </p>
                                 <a class="cart-btn" @click="$root.addToCart(product)"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                             </div>
-                        </template>    
+                        </template>
                     </div>
                 </div>
             </div>
@@ -52,60 +52,65 @@
         name: "Products",
         data() {
             return {
-                "chunks": [],
                 "pageNumber": 1,
                 "items": 0,
-                "layout": [3,2]
+                "layout": [3, 2],
+                "filter": "all"
             }
         },
-        mounted() {
+        computed: {
+            maxPage() {
+                return Math.ceil(this.items / (this.layout[0] * this.layout[1]))
+            },
             // chunk up inventory into rows of 3, 2 rows per page
             /*
-             * Chunks looks like 
-             *  [ 
+             * Chunks looks like
+             *  [
              *      chunk0 -> {
-             *          product0 -> 'card name': {price, tags, etc} 
-             *          productN -> ... 
+             *          product0 -> 'card name': {price, tags, etc}
+             *          productN -> ...
              *          pageNumber -> 1
              *      }
-             *      chunkN -> 
-             *  
+             *      chunkN ->
+             *
              *  ]
-             *  
+             *
              */
-            let entries = 1
-            let pageNumber = 1
-            let chunk = {}
-            for (let product in this.$root.inventory) {
-                chunk[product] = this.$root.inventory[product]
-                if (entries % this.layout[0] == 0) {
-                    chunk.pageNumber = pageNumber
-                    this.chunks.push(chunk)
-                    chunk = {}
-                    if (this.chunks.length % this.layout[1] == 0) {
-                        pageNumber ++
-                    }            
-                }                
-                entries += 1
-            }
-            this.items = entries
-            chunk.pageNumber = pageNumber
-            this.chunks.push(chunk)
-        },
-        computed: { 
-            maxPage() {
-                return Math.ceil(this.items/(this.layout[0]*this.layout[1]))
+            chunks() {
+                let chunks = []
+                let entries = 1
+                let pageNumber = 1
+                let chunk = {}
+                for (let product in this.$root.inventory) {
+                    if (this.$root.inventory[product].tags.indexOf(this.filter) > -1 || this.filter === 'all') {
+                        chunk[product] = this.$root.inventory[product]
+                        if (entries % this.layout[0] == 0) {
+                            chunk.pageNumber = pageNumber
+                            chunks.push(chunk)
+                            chunk = {}
+                            if (chunks.length % this.layout[1] == 0) {
+                                pageNumber++
+                            }
+                        }
+                        entries += 1
+                    }
+                }
+                this.items = entries
+                chunk.pageNumber = pageNumber
+                chunks.push(chunk)
+
+                return chunks
             }
         },
         methods: {
             setPageNumber: function (pos) {
-                window.scrollTo(0,0)
+                window.scrollTo(0, 0)
                 const options = {
                     'prev': this.pageNumber > 1 ? this.pageNumber - 1 : this.pageNumber,
                     'first': this.pageNumber > 1 ? this.pageNumber - 1 : this.pageNumber,
-                    'mid': this.pageNumber>1 ? this.pageNumber : this.pageNumber+1,
-                    'last': this.pageNumber>1 ? (this.pageNumber<=this.maxPage-1 ? this.pageNumber+1 : this.pageNumber) : this.pageNumber+2,
-                    'next': this.pageNumber<=this.maxPage-1 ? this.pageNumber+1 : this.pageNumber
+                    'mid': this.pageNumber > 1 ? this.pageNumber : (this.pageNumber >= this.maxPage ? this.pageNumber : this.pageNumber + 1 ),
+                    'last': this.pageNumber > 1 ? (this.pageNumber <= this.maxPage - 1 ? this.pageNumber + 1 : this.pageNumber) : (this.pageNumber >= this.maxPage ? this.pageNumber : this.pageNumber + 2 ),
+                    'next': this.pageNumber <= this.maxPage - 1 ? this.pageNumber + 1 : this.pageNumber
                 }
                 this.pageNumber = options[pos]
             },

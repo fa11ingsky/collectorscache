@@ -12,36 +12,39 @@
             </div>
         </div>
 
-            <div v-for="chunk in chunks">
-                <div class="row product-row" v-if="pageNumber == chunk.pageNumber">
-                    <div v-for="(data,product) in chunk" class="col-md-4 text-center cart-bottom product-width pokemon">
-                        <template v-if="product != 'pageNumber'">
-                            <div class="single-product-item">
-                                <div class="product-image">
-                                    <router-link :to="'/info/'+data.url"><img :src="'img/products/'+data.img" /></router-link>
-                                </div>
-                                <h3>{{product}}</h3>
-                                <p class="product-price"> ${{data.price}} </p>
-                                <a class="cart-btn" @click="$root.addToCart(product)"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+        <div v-for="chunk in chunks">
+            <div class="row product-row" v-if="pageNumber == chunk.pageNumber">
+                <div v-for="(data,product) in chunk" class="col-md-4 text-center cart-bottom product-width pokemon">
+                    <template v-if="product != 'pageNumber'">
+                        <div class="single-product-item">
+                            <div v-if="data.stock==1" class="stock-banner">Only 1 left!</div>
+                            <div v-if="data.stock==0" class="outofstock-banner">Out of Stock!</div>
+                            <div class="product-image">
+                                <router-link :to="'/info/'+data.url"><img :src="'img/products/'+data.img" /></router-link>
                             </div>
-                        </template>
-                    </div>
+                            <h3>{{product}}</h3>
+                            <p class="product-price"> ${{data.price}} </p>
+                            <a v-if="data.stock!=0" class="cart-btn" @click="$root.addToCart(product)"><i class="fas fa-shopping-cart"></i>Add to Cart</a>
+                            <a v-if="data.stock==0" class="outofstock-btn" >Out of Stock</a>
+                        </div>
+                    </template>
                 </div>
             </div>
+        </div>
 
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="pagination-wrap">
-                        <ul>
-                            <li><a @click="setPageNumber('prev')">Prev</a></li>
-                            <li><a :class="pageNumber==1 ? 'active' : ''" @click="setPageNumber('first')">{{pageNumber>1 ? pageNumber-1 : pageNumber}}</a></li>
-                            <li><a :class="(pageNumber!=1 && pageNumber != maxPage+1) ? 'active' : ''" @click="setPageNumber('mid')">{{pageNumber>1 ? pageNumber : pageNumber+1}}</a></li>
-                            <li><a @click="setPageNumber('last')">{{pageNumber>1 ? pageNumber+1 : pageNumber+2}}</a></li>
-                            <li><a @click="setPageNumber('next')">Next</a></li>
-                        </ul>
-                    </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="pagination-wrap">
+                    <ul>
+                        <li><a @click="setPageNumber('prev')">Prev</a></li>
+                        <li><a :class="pageNumber==1 ? 'active' : ''" @click="setPageNumber('first')">{{pageNumber>1 ? pageNumber-1 : pageNumber}}</a></li>
+                        <li><a :class="(pageNumber!=1 && pageNumber != maxPage+1) ? 'active' : ''" @click="setPageNumber('mid')">{{pageNumber>1 ? pageNumber : pageNumber+1}}</a></li>
+                        <li><a @click="setPageNumber('last')">{{pageNumber>1 ? pageNumber+1 : pageNumber+2}}</a></li>
+                        <li><a @click="setPageNumber('next')">Next</a></li>
+                    </ul>
                 </div>
             </div>
+        </div>
     </div>
 </template>
 
@@ -106,8 +109,8 @@
                 const options = {
                     'prev': this.pageNumber > 1 ? this.pageNumber - 1 : this.pageNumber,
                     'first': this.pageNumber > 1 ? this.pageNumber - 1 : this.pageNumber,
-                    'mid': this.pageNumber > 1 ? this.pageNumber : (this.pageNumber >= this.maxPage ? this.pageNumber : this.pageNumber + 1 ),
-                    'last': this.pageNumber > 1 ? (this.pageNumber <= this.maxPage - 1 ? this.pageNumber + 1 : this.pageNumber) : (this.pageNumber >= this.maxPage ? this.pageNumber : this.pageNumber + 2 ),
+                    'mid': this.pageNumber > 1 ? this.pageNumber : (this.pageNumber >= this.maxPage ? this.pageNumber : this.pageNumber + 1),
+                    'last': this.pageNumber > 1 ? (this.pageNumber <= this.maxPage - 1 ? this.pageNumber + 1 : this.pageNumber) : (this.pageNumber >= this.maxPage ? this.pageNumber : this.pageNumber + 2),
                     'next': this.pageNumber <= this.maxPage - 1 ? this.pageNumber + 1 : this.pageNumber
                 }
                 this.pageNumber = options[pos]

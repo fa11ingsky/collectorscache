@@ -83,7 +83,7 @@
                 if (val == 0) {
                     this.$root.cart[product] = val
                 } else {
-                    this.$root.cart[product] += val
+                    this.$root.cart[product] + val > this.$root.inventory[product].stock ? '' : this.$root.cart[product] += val
                 }
                 // Sync cart state with localstorage
                 localStorage.cart = JSON.stringify(this.$root.cart)

@@ -15,9 +15,9 @@
                         <h3 class="title">{{product}}</h3>
                     </div>
                     <div class="counter">
-                        <a class="fa-solid fa-circle-plus" @click="modItem(product,1)"></a>
+                        <a class="mod-btn fa-solid fa-circle-plus" @click="modItem(product,1)"></a>
                         <div class="count">{{$root.cart[product]}}</div>
-                        <a class="fa-solid fa-circle-minus" @click="modItem(product,-1)"></a>
+                        <a class="mod-btn fa-solid fa-circle-minus" @click="modItem(product,-1)"></a>
                     </div>
                     <div class="prices">
                         <div class="amount">{{$root.inventory[product].price * $root.cart[product]}}</div>
@@ -56,7 +56,6 @@
         </div>
         <hr>
         <div class="checkout">
-
             <div v-if="Object.keys($root.cart).length>0" id="smart-button-container">
                 <div style="text-align: center;">
                     <div id="paypal-button-container"></div>
@@ -158,3 +157,9 @@
         }
     }
 </script>
+
+<style>
+    .mod-btn {
+        color:black;
+    }
+</style>

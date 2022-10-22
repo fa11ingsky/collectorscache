@@ -15,7 +15,7 @@
                         <p>{{$root.inventory[product].description}}</p>
                         <div class="single-product-form">
                             <router-link to="/checkout" class="cart-btn" @click="$root.addToCart(product)"><i class="fas fa-shopping-cart"></i> Add to Cart</router-link>
-                            <p><strong>Categories: </strong>{{productTags}}</p>
+                            <p><strong>Tags: </strong>{{productTags(product)}}</p>
                         </div>
                     </div>
                 </div>
@@ -79,6 +79,12 @@
         mounted() {
             window.scrollTo(0, 0)
         },
+        methods: {
+            productTags: function (product) {
+                let tags = this.$root.inventory[product].tags
+                return tags.join(", ")
+            }
+        },
         computed: {
             product() {
                 let inv = this.$root.inventory
@@ -89,9 +95,6 @@
                     window.location.href = '/notfound'
                 }
                 return Object.keys(inv).filter(p => inv[p].url == productUrl)[0]
-            },
-            productTags() {
-                return ""
             }
         }
     }

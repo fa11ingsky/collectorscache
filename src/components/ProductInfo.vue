@@ -4,8 +4,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
+                    <div v-if="$root.inventory[product].stock==1" class="stock-banner">Only 1 left!</div>
+                    <div v-if="$root.inventory[product].stock==0" class="outofstock-banner">Out of Stock!</div>
                     <div class="single-product-img">
-                        <img :src="'/img/products/'+$root.inventory[product].img" alt="">
+
+                        <img :src="'/img/products/'+$root.inventory[product].img" :alt="product">
                     </div>
                 </div>
                 <div class="col-md-7">
@@ -89,7 +92,6 @@
             product() {
                 let inv = this.$root.inventory
                 let productUrl = this.$route.params.product || null
-                let productName = '' 
                 if (!productUrl || Object.keys(inv).map(p => inv[p].url).indexOf(productUrl) === -1 ){
                     productUrl = null
                     window.location.href = '/notfound'

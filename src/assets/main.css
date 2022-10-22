@@ -2497,10 +2497,9 @@ a.cart-btn {
     }
 
 .single-product-img img {
+    padding-left:20px;
     border-radius: 5px;
     max-width: 200px;
-    -webkit-box-shadow: 0 0 20px #ddd;
-    box-shadow: 0 0 20px #ddd;
 }
 
 .single-product-content h3 {

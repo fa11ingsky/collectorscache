@@ -35,17 +35,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
-                    <div class="breadcrumb-text">
+                    <router-link to="/" class="breadcrumb-text">
                         <h1>Bounty Box</h1>
                         <p>an ArmourScope affliate</p>
-                    </div>
+                    </router-link>
                 </div>
             </div>
         </div>
     </div>
     <!-- end breadcrumb section -->
     <!-- products -->
-    <div class="product-section mt-100 mb-150">
+    <div class="view-section mb-150">
         <router-view></router-view>
         <noscript class="nojs">JavaScript is required for this site!</noscript>
         <!--PreLoader-->
@@ -136,3 +136,10 @@
         }
     }
 </script>
+
+<style>
+    .view-section {
+        margin-top: 20px;
+    }
+
+</style>

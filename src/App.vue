@@ -65,15 +65,15 @@
                 <div class="col-lg-6 text-center">
                     <div class="footer-box about-widget">
                         <h2 class="widget-title">About us</h2>
-                            <p>Bounty Box is an ArmourScope affiliate.</p>
-                            <p>Registered ABN 40136037247.</p>
+                        <p>Bounty Box is an ArmourScope affiliate.</p>
+                        <p>Registered ABN 40136037247.</p>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center">
                     <div class="footer-box get-in-touch">
                         <h2 class="widget-title">Get in touch</h2>
-                            <p>Canberra, ACT, Australia</p>
-                            <p>contact.armourscope@gmail.com</p>
+                        <p>Canberra, ACT, Australia</p>
+                        <p>contact.armourscope@gmail.com</p>
                     </div>
                 </div>
             </div>
@@ -86,14 +86,14 @@
             <div class="row">
                 <div class="text-center">
                     <div class="social-icons">
-                    <ul>
-                        <li><router-link to="/" target="_blank"><i class="fab fa-facebook-f"></i></router-link></li>
-                        <li><router-link to="/" target="_blank"><i class="fab fa-twitter"></i></router-link></li>
-                        <li><router-link to="/" target="_blank"><i class="fa fa-earth-americas"></i></router-link></li>
-                    </ul>
+                        <ul>
+                            <li><router-link to="/" target="_blank"><i class="fab fa-facebook-f"></i></router-link></li>
+                            <li><router-link to="/" target="_blank"><i class="fab fa-twitter"></i></router-link></li>
+                            <li><router-link to="/" target="_blank"><i class="fa fa-earth-americas"></i></router-link></li>
+                        </ul>
                     </div>
                     <div class="text-center">
-                     <p>Copyrights &copy; 2022 - <a href="https://www.armourscope.com/">ArmourScope</a>,  All Rights Reserved.</p>   
+                        <p>Copyrights &copy; 2022 - <a href="https://www.armourscope.com/">ArmourScope</a>,  All Rights Reserved.</p>
                     </div>
                 </div>
             </div>
@@ -102,7 +102,7 @@
 </template>
 
 <script>
-    
+
     import json from "./assets/inventory.json"
 
     export default {
@@ -117,12 +117,15 @@
         methods: {
             addToCart: function (product) {
                 if (product in this.cart) {
-                    this.cart[product] ++
+                    if (this.cart[product] + 1 <= this.inventory[product].stock) {
+                        this.cart[product]++
+                        this.cartItems += 1
+                    }
                 } else {
                     this.cart[product] = 1
+                    this.cartItems += 1
                 }
                 localStorage.cart = JSON.stringify(this.cart)
-                this.cartItems += 1
             }
         },
         mounted() {
@@ -141,5 +144,4 @@
     .view-section {
         margin-top: 20px;
     }
-
 </style>

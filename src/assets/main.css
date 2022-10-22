@@ -1286,6 +1286,15 @@ a.cart-btn {
     transition: 0.3s;
 }
 
+a.outofstock-btn {
+    background-color: lightslategray;
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius:50px;
+}
+
     a.cart-btn:hover {
         background-color: #42a1f5;
         color: #000;

@@ -24,7 +24,8 @@
                             </div>
                             <h3>{{product}}</h3>
                             <p class="product-price"> ${{data.price}} </p>
-                            <a class="cart-btn" @click="$root.addToCart(product)"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                            <a v-if="data.stock!=0" class="cart-btn" @click="$root.addToCart(product)"><i class="fas fa-shopping-cart"></i>Add to Cart</a>
+                            <a v-if="data.stock==0" class="outofstock-btn" >Out of Stock</a>
                         </div>
                     </template>
                 </div>

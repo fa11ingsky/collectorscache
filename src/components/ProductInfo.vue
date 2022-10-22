@@ -7,7 +7,6 @@
                     <div v-if="$root.inventory[product].stock==1" class="stock-banner">Only 1 left!</div>
                     <div v-if="$root.inventory[product].stock==0" class="outofstock-banner">Out of Stock!</div>
                     <div class="single-product-img">
-
                         <img :src="'/img/products/'+$root.inventory[product].img" :alt="product">
                     </div>
                 </div>
@@ -17,8 +16,9 @@
                         <p class="single-product-pricing">${{$root.inventory[product].price}}</p>
                         <p>{{$root.inventory[product].description}}</p>
                         <div class="single-product-form">
-                            <router-link to="/checkout" class="cart-btn" @click="$root.addToCart(product)"><i class="fas fa-shopping-cart"></i> Add to Cart</router-link>
-                            <p><strong>Tags: </strong>{{productTags(product)}}</p>
+                            <router-link v-if="$root.inventory[product].stock != 0" to="/checkout" class="cart-btn" @click="$root.addToCart(product)"><i class="fas fa-shopping-cart"></i> Add to Cart</router-link>
+                            <a v-if="$root.inventory[product].stock == 0" class="outofstock-btn">Out of Stock</a>
+                            <p><strong><br />Tags: </strong>{{productTags(product)}}</p>
                         </div>
                     </div>
                 </div>

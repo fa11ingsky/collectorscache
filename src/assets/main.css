@@ -2416,7 +2416,7 @@ ul.social-link-team {
 
 ----------------------------------------------------------------------------- */
 .product-filters {
-    margin-bottom: 80px;
+    margin-bottom: 20px;
 }
 
     .product-filters ul {
@@ -2459,6 +2459,7 @@ ul.social-link-team {
         }
 
 .single-product-item h3 {
+    color: black;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 10px;

@@ -120,31 +120,3 @@
         }
     }
 </script>
-
-
-<style>
-    .stock-banner {
-        z-index: 4;
-        margin-top: 80px;
-        position: absolute;
-        background-color: #e84a2e;
-        font-family: sans-serif;
-        color: white;
-        font-weight: 700;
-        padding: 4px 5px 3px 3px;
-        border-radius: 3px;
-    }
-
-    .outofstock-banner {
-        z-index: 4;
-        margin-top: 80px;
-        position: absolute;
-        background-color: lightslategray;
-        font-family: sans-serif;
-        color: white;
-        font-weight: 700;
-        padding: 4px 5px 3px 3px;
-        border-radius: 3px;
-    }
-</style>
-

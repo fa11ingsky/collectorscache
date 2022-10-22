@@ -1,80 +1,100 @@
 {
   "Rapid Strike Urshifu VMAX League Battle Deck (TCG)": {
     "price": 85,
-    "img": "Rapid-Strike-Deck.jpg",
+    "img": "Rapid-Strike-Deck.png",
     "url": "urshifu-league-deck",
-    "description": "Rapid Strike Urshifu VMAX League Battle Deck (TCG): Contains a ready-to-play 60 card deck"
+    "description": "Rapid Strike Urshifu VMAX League Battle Deck (TCG): Contains a ready-to-play 60 card deck",
+    "tags": [ "pokemon" ]
   },
   "Volcarona GX (SM12 252)": {
     "price": 34,
     "img": "SM12_EN_252.png",
     "url": "sm12-252",
-    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing."
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ]
   },
   "Arceus Dialga & Palkia (SM12 156)": {
     "price": 112,
     "img": "SM12_EN_156.png",
     "url": "sm12-156",
-    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing."
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ]
   },
   "Mewtwo & Mew GX (SM11 71)": {
     "price": 85,
     "img": "SM11_EN_71.png",
     "url": "sm11-71",
-    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing."
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ]
   },
   "Single Strike Style Mustard (SWSH5 163)": {
     "price": 67,
     "img": "SWSH5_EN_163.png",
     "url": "swsh5-163",
-    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing."
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ]
   },
   "Gardevoir & Sylveon GX (SM10 204)": {
     "price": 24,
     "img": "SM10_EN_204.png",
     "url": "sm10-204",
-    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing."
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ]
   },
   "Rowlet & Alolan Exeggutor GX (SM11 1)": {
     "price": 56,
     "img": "SM11_EN_1.png",
     "url": "sm11-1",
-    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing."
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ]
   },
   "Scizor VMAX (SWSH3 193)": {
     "price": 134,
     "img": "SWSH3_EN_193.png",
     "url": "swsh3-193",
-    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing."
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ]
   },
   "Blastoise & Piplip GX (SM12 214)": {
     "price": 134,
     "img": "SM12_EN_214.png",
     "url": "sm12-214",
-    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing."
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ]
   },
   "Allister (SWSH4 179)": {
     "price": 213,
     "img": "SWSH4_EN_179.png",
     "url": "swsh4-179",
-    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing."
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ]
   },
   "Professor's Research (SWSH1 201)": {
     "img": "SWSH1_EN_201.png",
     "price": 60,
     "url": "SWSH1_EN_201",
-    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing."
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ]
   },
   "Bronzong (SWSH6 223)": {
     "img": "SWSH6_EN_223.png",
     "price": 50,
     "url": "SWSH6_EN_223",
-    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing."
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ]
   },
   "Charizard (Base Set)": {
     "img": "Charizard_Base.jpg",
     "price": 50000,
     "url": "charizard-base-set",
-    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing."
-  }
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": ["pokemon"]
+  },
+  "Venusaur Play Mat": {
+    "img": "venusaur-playmat.png",
+    "price": 60,
+    "url": "venusaur-playmat",
+    "description": "Made with Neoprene",
+    "tags": ["mats","pokemon"]
+  } 
 }

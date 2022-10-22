@@ -62,7 +62,6 @@
             // chunk up inventory into rows of 3, 2 rows per page
             let entries = 1
             let pageNumber = 1
-            let count = 1
             let chunk = {}
             for (let product in this.$root.inventory) {
                 chunk[product] = this.$root.inventory[product]

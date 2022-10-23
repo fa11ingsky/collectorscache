@@ -106,6 +106,7 @@
     import json from "./assets/inventory.json"
 
     export default {
+        title: 'Bounty Box: Collectibles and More',
         data() {
             return {
                 loading: true,

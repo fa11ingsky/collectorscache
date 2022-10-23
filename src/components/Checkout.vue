@@ -51,7 +51,7 @@
             </div>
             <div class="row" v-if="promoApplied">
                 <div class="col">Discount</div>
-                <div class="cost col">{{discount}}% ({{promoCode}})</div>
+                <div class="cost col">{{discount}}% ({{promoCode.trim()}})</div>
             </div>
             <div class="row">
                 <div class="col">Shipping</div>

@@ -51,6 +51,7 @@
 <script>
     export default {
         name: "Products",
+        title: 'Bounty Box: Collectibles and More',
         data() {
             return {
                 "pageNumber": 1,

@@ -79,6 +79,9 @@
             return {
             }
         },
+        title() {
+            return `Pokemon TCG: ${this.product} - Buy Now`
+        },
         mounted() {
             window.scrollTo(0, 0)
         },

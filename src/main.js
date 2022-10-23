@@ -1,6 +1,7 @@
 // Vue libraries
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import titleMixin from './mixins/titleMixin.js'
 
 // CSS 
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -34,4 +35,5 @@ const router = createRouter({
 })
 
 app.use(router)
+app.mixin(titleMixin)
 app.mount('#app')

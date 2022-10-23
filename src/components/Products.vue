@@ -10,8 +10,11 @@
                     </ul>
                 </div>
             </div>
+            <div class="search-bar-tablecell text-center">
+                <i class="fa fa-search"></i>
+                <input class="form-control" type="text" v-model="input" placeholder="Search">
+            </div>
         </div>
-
         <div v-for="chunk in chunks">
             <div class="row product-row" v-if="pageNumber == chunk.pageNumber">
                 <div v-for="(data,product) in chunk" class="col-md-4 text-center cart-bottom product-width pokemon">
@@ -57,7 +60,8 @@
                 "pageNumber": 1,
                 "items": 0,
                 "layout": [3, 2],
-                "filter": "all"
+                "filter": "all",
+                "input": ""
             }
         },
         computed: {
@@ -85,16 +89,18 @@
                 let chunk = {}
                 for (let product in this.$root.inventory) {
                     if (this.$root.inventory[product].tags.indexOf(this.filter) > -1 || this.filter === 'all') {
-                        chunk[product] = this.$root.inventory[product]
-                        if (entries % this.layout[0] == 0) {
-                            chunk.pageNumber = pageNumber
-                            chunks.push(chunk)
-                            chunk = {}
-                            if (chunks.length % this.layout[1] == 0) {
-                                pageNumber++
+                        if (product.toLowerCase().indexOf(this.input.toLowerCase()) >-1){
+                            chunk[product] = this.$root.inventory[product]
+                            if (entries % this.layout[0] == 0) {
+                                chunk.pageNumber = pageNumber
+                                chunks.push(chunk)
+                                chunk = {}
+                                if (chunks.length % this.layout[1] == 0) {
+                                    pageNumber++
+                                }
                             }
+                            entries += 1
                         }
-                        entries += 1
                     }
                 }
                 this.items = entries

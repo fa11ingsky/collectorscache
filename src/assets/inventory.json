@@ -109,6 +109,78 @@
     "url": "venusaur-playmat",
     "description": "Dimensions: 24 x 14 inches. Made with Neoprene",
     "tags": [ "mats", "pokemon" ],
-    "stock":1
-  } 
+    "stock": 1
+  },
+  "Noivern GX (SM3 141)": {
+    "img": "SM3_EN_141.png",
+    "price": 30,
+    "url": "SM3_EN_141",
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ],
+    "stock": 1
+  },
+  "Persian GX (SM10 149)": {
+    "img": "SM10_EN_149.png",
+    "price": 25,
+    "url": "SM10_EN_149",
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ],
+    "stock": 1
+  },
+  "Dragonite GX (SM11 152)": {
+    "img": "SM11_EN_152.png",
+    "price": 40,
+    "url": "SM11_EN_152",
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ],
+    "stock": 2
+  },
+  "WishiWashi GX (SM12 63)": {
+    "img": "SM12_EN_63.png",
+    "price": 30,
+    "url": "SM12_EN_63",
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ],
+    "stock": 1
+  },
+  "Flygon GX (SM12 110)": {
+    "img": "SM12_EN_110.png",
+    "price": 20,
+    "url": "SM12_EN_110",
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ],
+    "stock": 1
+  },
+  "Weavile - Full Art (SM12 238)": {
+    "img": "SM12_EN_238.png",
+    "price": 20,
+    "url": "SM12_EN_238",
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ],
+    "stock": 1
+  },
+  "Koffing - Full Art (SM12 243)": {
+    "img": "SM12_EN_243.png",
+    "price": 20,
+    "url": "SM12_EN_243",
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ],
+    "stock": 1
+  },
+  "Gallade - Full Art (SM12 244)": {
+    "img": "SM12_EN_244.png",
+    "price": 20,
+    "url": "SM12_EN_244",
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ],
+    "stock": 1
+  },
+  "Rhyperior V (SWSH3 181)": {
+    "img": "SWSH3_EN_181.png",
+    "price": 60,
+    "url": "SWSH3_EN_181",
+    "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
+    "tags": [ "pokemon" ],
+    "stock": 1
+  }
 }

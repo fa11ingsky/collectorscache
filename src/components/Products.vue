@@ -1,6 +1,9 @@
 <template>
     <div class="container">
         <div class="row">
+            <form class="nosubmit">
+            <input class="nosubmit" type="search" v-model="input" placeholder="Search">
+            </form>
             <div class="col-md-12">
                 <div class="product-filters">
                     <ul>
@@ -9,10 +12,6 @@
                         <li :class="filter=='mats' ? 'active' : ''" @click="filter='mats';pageNumber=1">Mats</li>
                     </ul>
                 </div>
-            </div>
-            <div class="search-bar-tablecell text-center">
-                <i class="fa fa-search"></i>
-                <input class="form-control" type="text" v-model="input" placeholder="Search">
             </div>
         </div>
         <div v-for="chunk in chunks">

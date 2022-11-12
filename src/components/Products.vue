@@ -25,7 +25,7 @@
                             <h3>{{product}}</h3>
                             <p class="product-price"> ${{data.price}} </p>
                             <a v-if="data.stock!=0" class="cart-btn" @click="$root.addToCart(product); add(chunk[product])"><i class="fas fa-shopping-cart"></i>Add to Cart</a>
-                            <div v-if="data.added">
+                            <div v-show="data.added">
                                 <h6>Item added to cart</h6>
                             </div>
                             <a v-if="data.stock==0" class="outofstock-btn" >Out of Stock</a>
@@ -123,8 +123,13 @@
                 return btoa(s)
             },
             add: function (productObj) {
-                productObj.added=!productObj.added
-
+                if (productObj.added) {
+                    productObj.added=false
+                    setTimeout(()=>{productObj.added=true},300)
+                }
+                else {
+                    productObj.added=true
+                }
             }
         }
     }

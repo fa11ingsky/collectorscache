@@ -134,7 +134,7 @@ h6, .h6 {
     font-size: 1rem;
     font-weight: 700;
     line-height: 3rem;
-    animation: fadeIn 3s;
+    animation: fadeIn 2s;
 }
 
 @keyframes fadeIn {

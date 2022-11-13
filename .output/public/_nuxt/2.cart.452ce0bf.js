@@ -1,1 +1,0 @@
-import{e as s,f as o,b as n}from"./entry.603b542b.js";const i=function(e){let a=s(),t=o();const l=n();e in a.value?a.value[e]+1<=l.value[e].stock&&(a.value[e]++,t.value+=1):(a.value[e]=1,t.value+=1),console.log("composable")};export{i as a};

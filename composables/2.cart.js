@@ -11,5 +11,4 @@ export const addToCart = function (product) {
         cart.value[product] = 1
         cartItems.value += 1
     }
-    console.log('composable')
 }

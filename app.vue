@@ -51,7 +51,7 @@
     <!-- end breadcrumb section -->
     <!-- products -->
     <div class="view-section mb-150">
-        <NuxtPage />
+        <NuxtPage v-model="cart"/>
         <noscript class="nojs">JavaScript is required for this site!</noscript>
         <!--PreLoader-->
         <Transition>
@@ -116,12 +116,10 @@
         setup() {
             const inventory = getInventory()
             let cart = getCart()
-            let globalCartItems = getCartItems()
 
             return {
                 inventory,
-                cart,
-                globalCartItems
+                cart
             }
         },
         computed: {
@@ -130,8 +128,14 @@
                 for (let product in this.cart) {
                     items += this.cart[product]
                 }
-                this.globalCartItems = items
                 return items
+            }
+        },
+        watch: {
+            cart: {
+                handler(val) {
+                    localStorage.setItem('cart',JSON.stringify(val))
+                }, deep: true
             }
         },
         head() {
@@ -153,8 +157,7 @@
         },
         data() {
             return {
-                loading: true,
-                cart: {}
+                loading: true
             }
         },
         mounted() {

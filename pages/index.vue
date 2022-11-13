@@ -1,6 +1,9 @@
 <template>
     <div class="container">
         <div class="row">
+            <form class="nosubmit">
+                <input class="nosubmit" type="search" v-model="searchFilter" placeholder="Search">
+            </form>
             <div class="col-md-12">
                 <div class="product-filters">
                     <ul>
@@ -11,7 +14,6 @@
                 </div>
             </div>
         </div>
-
         <div v-for="chunk in chunks">
             <div class="row product-row" v-if="pageNumber == chunk.pageNumber">
                 <div v-for="(data,product) in chunk" class="col-md-4 text-center cart-bottom product-width pokemon">
@@ -31,7 +33,6 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="pagination-wrap">
@@ -49,8 +50,7 @@
 </template>
 
 <script>
-    //import { getInventory } from '~/composables/1.inventory.js'
-
+    
     export default {
         name: "Products",
         setup() {
@@ -68,7 +68,8 @@
                 "pageNumber": 1,
                 "items": 0,
                 "layout": [3, 2],
-                "filter": "all"
+                "filter": "all",
+                "searchFilter": ""
             }
         },
         computed: {
@@ -96,16 +97,18 @@
                 let chunk = {}
                 for (let product in this.inventory) {
                     if (this.inventory[product].tags.indexOf(this.filter) > -1 || this.filter === 'all') {
-                        chunk[product] = this.inventory[product]
-                        if (entries % this.layout[0] == 0) {
-                            chunk.pageNumber = pageNumber
-                            chunks.push(chunk)
-                            chunk = {}
-                            if (chunks.length % this.layout[1] == 0) {
-                                pageNumber++
+                        if (product.toLowerCase().indexOf(this.searchFilter.toLowerCase()) >-1){
+                            chunk[product] = this.inventory[product]
+                            if (entries % this.layout[0] == 0) {
+                                chunk.pageNumber = pageNumber
+                                chunks.push(chunk)
+                                chunk = {}
+                                if (chunks.length % this.layout[1] == 0) {
+                                    pageNumber++
+                                }
                             }
+                            entries += 1
                         }
-                        entries += 1
                     }
                 }
                 this.items = entries
@@ -130,19 +133,6 @@
             btoa: function (s) {
                 return btoa(s)
             }
-            /*addToCart: function (product) {
-                console.log(this.cartItems)
-                if (product in this.cart) {
-                    if (this.cart[product] + 1 <= this.inventory[product].stock) {
-                        this.cart[product]++
-                        this.cartItems += 1
-                    }
-                } else {
-                    this.cart[product] = 1
-                    this.cartItems += 1
-                }
-                localStorage.cart = JSON.stringify(this.cart)
-            }*/
         }
     }
 </script>

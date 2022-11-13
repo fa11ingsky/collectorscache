@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <form class="nosubmit">
-            <input class="nosubmit" type="search" v-model="input" placeholder="Search">
+                <input class="nosubmit" type="search" v-model="searchFilter" placeholder="Search">
             </form>
             <div class="col-md-12">
                 <div class="product-filters">
@@ -69,7 +69,7 @@
                 "items": 0,
                 "layout": [3, 2],
                 "filter": "all",
-                "input": ""
+                "searchFilter": ""
             }
         },
         computed: {
@@ -97,7 +97,7 @@
                 let chunk = {}
                 for (let product in this.inventory) {
                     if (this.inventory[product].tags.indexOf(this.filter) > -1 || this.filter === 'all') {
-                        if (product.toLowerCase().indexOf(this.input.toLowerCase()) >-1){
+                        if (product.toLowerCase().indexOf(this.searchFilter.toLowerCase()) >-1){
                             chunk[product] = this.inventory[product]
                             if (entries % this.layout[0] == 0) {
                                 chunk.pageNumber = pageNumber

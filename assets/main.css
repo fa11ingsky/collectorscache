@@ -1253,8 +1253,8 @@ form.nosubmit {
 
 input.nosubmit {
     width: 40%;
-    border-radius: 25px;
-    border: 2px solid #42a1f5;
+    border-radius: 10px;
+    border: 2px solid black;
     color: #323232;
     display: block;
     margin-right: auto;
@@ -2490,12 +2490,10 @@ ul.social-link-team {
             display: inline-block;
             font-weight: 700;
             font-size: 18px;
-            margin: 15px;
-            border: 2px solid #42a1f5;
             color: #323232;
             cursor: pointer;
-            padding: 8px 20px;
-            border-radius: 25px;
+            padding: 1px 8px 1px 8px;
+            border-radius: 10px;
         }
 
             .product-filters ul li.active {

@@ -1794,11 +1794,10 @@ p.excerpt {
                 font-size: 15px;
                 background-color: #f3f3f3;
                 display: inline-block;
-                padding: 8px 14px;
-                border-radius: 5px;
+                padding: 1px 8px 1px 8px;
+                border-radius: 10px;
                 margin: 3px;
                 font-weight: 600;
-                border-radius: 50px;
             }
 
                 .pagination-wrap ul li a.active {

@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                    <div v-if="inventory[product].stock==1" class="stock-banner">Only 1 left!</div>
+                    <!--<div v-if="inventory[product].stock==1" class="stock-banner">Only 1 left!</div>-->
                     <div v-if="inventory[product].stock==0" class="outofstock-banner">Out of Stock!</div>
                     <div class="single-product-img">
                         <img :src="'/img/products/'+inventory[product].img" :alt="product">

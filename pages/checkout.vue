@@ -58,7 +58,7 @@
             <br />
             <div class="row">
                 <div class="total col">Total</div>
-                <div class="total cost col">AUD ${{discountTotal + shipping}}</div>
+                <div class="total cost col">AUD ${{finalTotal}}</div>
             </div>
         </div>
         <hr>
@@ -79,11 +79,9 @@
         setup() {
             const inventory = getInventory()
             let cart = getCart()
-            let cartItems = getCartItems()
             return {
                 inventory,
-                cart,
-                cartItems
+                cart                
             }
         },
         head() {
@@ -99,17 +97,30 @@
             }
         },
         computed: {
+            cartItems() {
+                return Object.keys(this.cart).length;
+            },
             shipping() {
                 return this.country == "Australia" ? 10 : 20
             },
             promoApplied() {
-                return this.promoCode.trim() in promos
+                return this.promoCode.trim() in promos;
             },
             discount() {
                 return promos[this.promoCode.trim()] || 0
             },
             discountTotal() {
                 return parseFloat((this.subtotal * (1 - (this.discount / 100))).toFixed(2))
+            },
+            finalTotal() {
+                return this.cartItems > 0 ? this.discountTotal + this.shipping : 0;
+            },
+            subtotal() {
+                let sub = 0;
+                for (let product in this.cart) {
+                    sub += this.inventory[product].price * this.cart[product];
+                }
+                return sub;
             },
             description() {
                 let descr = ""
@@ -119,19 +130,13 @@
                 descr += this.promoCode.trim() in promos ? `${this.promoCode.trim()}; ` : ''
                 descr += `shp${this.shipping}; `
                 return descr
-            },
-            subtotal() {
-                let sub = 0
-                for (let product in this.cart) {
-                    sub += this.inventory[product].price * this.cart[product];
-                }
-                return sub
             }
         },
         methods: {
             modItem: function (product, val) {
                 if (val == 0) {
-                    this.cart[product] = val
+                    this.cart[product] = val;
+                    delete this.cart[product];
                 } else {
                     this.cart[product] + val > this.inventory[product].stock ? '' : this.cart[product] += val
                 }

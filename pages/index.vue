@@ -10,6 +10,7 @@
                         <li :class="filter=='all' ? 'active' : ''" @click="filter='all';pageNumber=1">All</li>
                         <li :class="filter=='pokemon' ? 'active' : ''" @click="filter='pokemon';pageNumber=1">Pokemon</li>
                         <li :class="filter=='mats' ? 'active' : ''" @click="filter='mats';pageNumber=1">Mats</li>
+                        <li :class="filter=='comics' ? 'active' : ''" @click="filter='comics';pageNumber=1">Comics</li>
                     </ul>
                 </div>
             </div>

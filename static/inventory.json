@@ -1,4 +1,58 @@
 {
+  "Superman #1 (2018)": {
+    "img": "SM_01_2018.avif",
+    "price": "10",
+    "url": "SM_01_2018",
+    "tags": [
+      "comics"
+    ],
+    "stock": 1
+  },
+  "Superman #2 (2018)": {
+    "img": "SM_02_2018.avif",
+    "price": "10",
+    "url": "SM_02_2018",
+    "tags": [
+      "comics"
+    ],
+    "stock": 1
+  },
+  "Superman #3 (2018)": {
+    "img": "SM_03_2018.avif",
+    "price": "10",
+    "url": "SM_03_2018",
+    "tags": [
+      "comics"
+    ],
+    "stock": 1
+  },
+  "Superman #4 (2018)": {
+    "img": "SM_04_2018.avif",
+    "price": "10",
+    "url": "SM_04_2018",
+    "tags": [
+      "comics"
+    ],
+    "stock": 1
+  },
+  "Superman #5 (2018)": {
+    "img": "SM_05_2018.avif",
+    "price": "10",
+    "url": "SM_05_2018",
+    "tags": [
+      "comics"
+    ],
+    "stock": 1
+  },
+  "Superman #6 (2018)": {
+    "img": "SM_06_2018.avif",
+    "price": "10",
+    "caurlrt": "SM_06_2018",
+    "tags": [
+      "comics"
+    ],
+    "stock": 1
+  },
   "Rapid Strike Urshifu VMAX League Battle Deck (TCG)": {
     "price": 85,
     "img": "Rapid-Strike-Deck.png",
@@ -227,60 +281,6 @@
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
     "tags": [
       "pokemon"
-    ],
-    "stock": 1
-  },
-  "Superman #1 (2018)": {
-    "img": "SM_01_2018.avif",
-    "price": "10",
-    "url": "SM_01_2018",
-    "tags": [
-      "comics"
-    ],
-    "stock": 1
-  },
-  "Superman #2 (2018)": {
-    "img": "SM_02_2018.avif",
-    "price": "10",
-    "url": "SM_02_2018",
-    "tags": [
-      "comics"
-    ],
-    "stock": 1
-  },
-  "Superman #3 (2018)": {
-    "img": "SM_03_2018.avif",
-    "price": "10",
-    "url": "SM_03_2018",
-    "tags": [
-      "comics"
-    ],
-    "stock": 1
-  },
-  "Superman #4 (2018)": {
-    "img": "SM_04_2018.avif",
-    "price": "10",
-    "url": "SM_04_2018",
-    "tags": [
-      "comics"
-    ],
-    "stock": 1
-  },
-  "Superman #5 (2018)": {
-    "img": "SM_05_2018.avif",
-    "price": "10",
-    "url": "SM_05_2018",
-    "tags": [
-      "comics"
-    ],
-    "stock": 1
-  },
-  "Superman #6 (2018)": {
-    "img": "SM_06_2018.avif",
-    "price": "10",
-    "caurlrt": "SM_06_2018",
-    "tags": [
-      "comics"
     ],
     "stock": 1
   }

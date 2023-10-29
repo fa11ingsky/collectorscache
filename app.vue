@@ -51,7 +51,7 @@
     <!-- end breadcrumb section -->
     <!-- products -->
     <div class="view-section mb-150">
-        <NuxtPage v-model="cart"/>
+        <NuxtPage v-model="cart" />
         <noscript class="nojs">JavaScript is required for this site!</noscript>
         <!--PreLoader-->
         <Transition>
@@ -134,7 +134,7 @@
         watch: {
             cart: {
                 handler(val) {
-                    localStorage.setItem('cart',JSON.stringify(val))
+                    localStorage.setItem('cart', JSON.stringify(val))
                 }, deep: true
             }
         },
@@ -152,6 +152,16 @@
                 script: [{
                     src: "https://www.paypal.com/sdk/js?client-id=AShtjOKOVOkbYPS-_g64mbyXfzrDpaeuWIQ9JDWnZUH7VW-4UdmGR-t5Ip2SKPqyT6mC7FvJRQ4BIGTG&enable-funding=venmo&currency=AUD",
                     "data-sdk-integration-source": "button-factory"
+                },
+                {
+                    src: "https://www.googletagmanager.com/gtag/js?id=G-RBKQ6Z3JE4"
+                },
+                {
+                    children:`window.dataLayer = window.dataLayer || [];
+                        function gtag() { dataLayer.push(arguments); }
+                        gtag('js', new Date());
+                        console.log('running')
+                        gtag('config', 'G-RBKQ6Z3JE4');`
                 }]
             }
         },

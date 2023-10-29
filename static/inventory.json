@@ -4,7 +4,9 @@
     "img": "Rapid-Strike-Deck.png",
     "url": "urshifu-league-deck",
     "description": "Rapid Strike Urshifu VMAX League Battle Deck (TCG): Contains a ready-to-play 60 card deck",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Volcarona GX (SM12 252)": {
@@ -12,7 +14,9 @@
     "img": "SM12_EN_252.png",
     "url": "sm12-252",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Arceus Dialga & Palkia (SM12 156)": {
@@ -20,7 +24,9 @@
     "img": "SM12_EN_156.png",
     "url": "sm12-156",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 2
   },
   "Mewtwo & Mew GX (SM11 71)": {
@@ -28,7 +34,9 @@
     "img": "SM11_EN_71.png",
     "url": "sm11-71",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Single Strike Style Mustard (SWSH5 163)": {
@@ -36,7 +44,9 @@
     "img": "SWSH5_EN_163.png",
     "url": "swsh5-163",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Gardevoir & Sylveon GX (SM10 204)": {
@@ -44,7 +54,9 @@
     "img": "SM10_EN_204.png",
     "url": "sm10-204",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Rowlet & Alolan Exeggutor GX (SM11 1)": {
@@ -52,7 +64,9 @@
     "img": "SM11_EN_1.png",
     "url": "sm11-1",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Scizor VMAX (SWSH3 193)": {
@@ -60,7 +74,9 @@
     "img": "SWSH3_EN_193.png",
     "url": "swsh3-193",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Blastoise & Piplup GX (SM12 214)": {
@@ -68,7 +84,9 @@
     "img": "SM12_EN_214.png",
     "url": "sm12-214",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Allister (SWSH4 179)": {
@@ -76,7 +94,9 @@
     "img": "SWSH4_EN_179.png",
     "url": "swsh4-179",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Professor's Research (SWSH1 201)": {
@@ -84,7 +104,9 @@
     "price": 60,
     "url": "SWSH1_EN_201",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Bronzong (SWSH6 223)": {
@@ -92,7 +114,9 @@
     "price": 50,
     "url": "SWSH6_EN_223",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Charizard (Base Set)": {
@@ -100,7 +124,9 @@
     "price": 50000,
     "url": "charizard-base-set",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Venusaur Play Mat": {
@@ -108,7 +134,10 @@
     "price": 60,
     "url": "venusaur-playmat",
     "description": "Dimensions: 24 x 14 inches. Made with Neoprene",
-    "tags": [ "mats", "pokemon" ],
+    "tags": [
+      "mats",
+      "pokemon"
+    ],
     "stock": 1
   },
   "Noivern GX (SM3 141)": {
@@ -116,7 +145,9 @@
     "price": 30,
     "url": "SM3_EN_141",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Persian GX (SM10 149)": {
@@ -124,7 +155,9 @@
     "price": 25,
     "url": "SM10_EN_149",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Dragonite GX (SM11 152)": {
@@ -132,7 +165,9 @@
     "price": 40,
     "url": "SM11_EN_152",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 2
   },
   "WishiWashi GX (SM12 63)": {
@@ -140,7 +175,9 @@
     "price": 30,
     "url": "SM12_EN_63",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Flygon GX (SM12 110)": {
@@ -148,7 +185,9 @@
     "price": 20,
     "url": "SM12_EN_110",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Weavile - Full Art (SM12 238)": {
@@ -156,7 +195,9 @@
     "price": 20,
     "url": "SM12_EN_238",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Koffing - Full Art (SM12 243)": {
@@ -164,7 +205,9 @@
     "price": 20,
     "url": "SM12_EN_243",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Gallade - Full Art (SM12 244)": {
@@ -172,7 +215,9 @@
     "price": 20,
     "url": "SM12_EN_244",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
     "stock": 1
   },
   "Rhyperior V (SWSH3 181)": {
@@ -180,7 +225,63 @@
     "price": 60,
     "url": "SWSH3_EN_181",
     "description": "Excellent condition, generally encased immediately after pulling from a booster pack. Delivered in a sleeve and top loader casing.",
-    "tags": [ "pokemon" ],
+    "tags": [
+      "pokemon"
+    ],
+    "stock": 1
+  },
+  "Superman #1 (2018)": {
+    "img": "SM_01_2018.avif",
+    "price": "10",
+    "url": "SM_01_2018",
+    "tags": [
+      "comics"
+    ],
+    "stock": 1
+  },
+  "Superman #2 (2018)": {
+    "img": "SM_02_2018.avif",
+    "price": "10",
+    "url": "SM_02_2018",
+    "tags": [
+      "comics"
+    ],
+    "stock": 1
+  },
+  "Superman #3 (2018)": {
+    "img": "SM_03_2018.avif",
+    "price": "10",
+    "url": "SM_03_2018",
+    "tags": [
+      "comics"
+    ],
+    "stock": 1
+  },
+  "Superman #4 (2018)": {
+    "img": "SM_04_2018.avif",
+    "price": "10",
+    "url": "SM_04_2018",
+    "tags": [
+      "comics"
+    ],
+    "stock": 1
+  },
+  "Superman #5 (2018)": {
+    "img": "SM_05_2018.avif",
+    "price": "10",
+    "url": "SM_05_2018",
+    "tags": [
+      "comics"
+    ],
+    "stock": 1
+  },
+  "Superman #6 (2018)": {
+    "img": "SM_06_2018.avif",
+    "price": "10",
+    "caurlrt": "SM_06_2018",
+    "tags": [
+      "comics"
+    ],
     "stock": 1
   }
 }
